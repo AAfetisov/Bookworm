@@ -32,7 +32,7 @@ module.exports = function MainPage({ user, users, pets }) {
           {user && !pets
             && (
               <h2>
-                <a href={`/farm/${user?.id}`}>Add</a>
+                <a href={`/private/addBook/${user?.id}`}>Add</a>
                 {' '}
                 some pets!
               </h2>

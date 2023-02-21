@@ -24,6 +24,28 @@ module.exports = function MainPage({ user, books }) {
               </div>
             </li>
           ))}
+        </div>
+
+        <ul className="Pets">
+          {pets && user
+            ? pets.map((pet) => (
+              <li key={pet.id}>
+                <img className="petPhoto" src={`/img/${pet.img}`} />
+                {pet.name}
+              </li>
+            ))
+            : (
+              <>
+              </>
+            )}
+          {user && !pets
+            && (
+              <h2>
+                <a href={`/private/addBook/${user?.id}`}>Add</a>
+                {' '}
+                some pets!
+              </h2>
+            )}
         </ul>
       </div>
     </Layout>

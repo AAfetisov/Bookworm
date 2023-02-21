@@ -1,7 +1,7 @@
 const express = require('express');
 const render = require('../lib/renderTemplate');
 const MainPage = require('../views/MainPage');
-const { sequelize, User, Pet } = require('../db/models');
+const { sequelize, User } = require('../db/models');
 
 const router = express.Router();
 

@@ -19,13 +19,14 @@ const addbookForm = async (req, res) => {
   console.log('userID ==>', id);
   try {
   // Достаём данные из формы
-    const { picture, bookTitle, description } = req.body;
+    const { author, title, description, img } = req.body;
     // Добавляем книгу в таблицу Book:
     const createBook = await Book.create({
-      picture,
-      bookTitle,
-      description,
       userId: id,
+      img,
+      title,
+      author,
+      description,
     });
     console.log(`Пост пользователя ${req.session?.user.login} успешно опубликован!`);
     // res.status(200).end();

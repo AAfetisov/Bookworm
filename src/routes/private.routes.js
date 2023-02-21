@@ -11,8 +11,8 @@ const { addBookPage, addbookForm } = require('../controllers/addBookController')
 // const isAuth = require('../middlewares/auth');
 
 // addFarmPage:
-router.get('/addbook/:id', addBookPage);
-router.post('/addbook/:id', addbookForm);
+router.get('/addbook/new', addBookPage);
+router.post('/addbook/new', addbookForm);
 
 
 module.exports = router;

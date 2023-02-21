@@ -1,0 +1,165 @@
+html {
+  height: 100%;
+  font-size: 16px;
+}
+body {
+  position: relative;
+}
+
+.container {
+  width: 100%;
+  min-height: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+.cont {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  align-items: center;
+}
+.contPets {
+  display: flex;
+  flex-flow: wrap;
+}
+.button {
+  background-color: #f7941e;
+  border-radius: 0.5em;
+  padding: 0.3rem;
+  color: white;
+  text-decoration: none;
+  width: 200px;
+  margin: 1rem;
+}
+
+.button:hover {
+  background-color: #f26539;
+  text-decoration: none;
+}
+label {
+  display: block;
+  padding-bottom: 0.5em;
+}
+input {
+  color: black;
+  width: 100%;
+  margin-bottom: 1em;
+  border-radius: 0.25em;
+  padding: 0.25em;
+  outline: none;
+  border: 1px solid #828c91;
+}
+input:focus {
+  border-color: #10abb5;
+}
+input[type="submit"] {
+  color: white;
+  width: 50%;
+  margin-top: 1em;
+  padding: 0.5em;
+  border: none;
+  background-color: #f26539;
+}
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: grey;
+  height: 4rem;
+}
+.nav .navbarLogo {
+  font-size: 1.5rem;
+}
+
+.navbarControls {
+  font-size: 1.2rem;
+  display: flex;
+  gap: 0.8em;
+  padding: 0.5em;
+  background-color: #c8c8c8;
+  border-radius: 5px;
+}
+.authErrTxt {
+  display: block;
+  color: red;
+  visibility: hidden;
+}
+.navbarLogo {
+  display: inline;
+}
+
+.contflex {
+  display: flex;
+  gap: 2rem;
+}
+
+.Farms {
+  background-color: grey;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  min-width: 20rem;
+}
+.Farms a {
+  color: black;
+  text-decoration: none;
+}
+
+ul {
+  display: flex;
+  gap: 0.5rem;
+  flex-flow: wrap;
+  list-style: none;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+li {
+  border: 0px;
+  border-radius: 5px;
+  outline: 2px solid grey;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.petPhoto {
+  height: 10rem;
+  width: 10rem;
+}
+.smallBtn {
+  border: 0px;
+  outline: 2px solid grey;
+  border-radius: 5px;
+}
+.deleteBtn {
+  margin-top: 0.3rem;
+  background-color: rgb(173, 0, 0);
+}
+.deleteBtn:hover {
+  background-color: rgb(245, 0, 0);
+}
+
+#editForm {
+  padding: 1rem;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20rem;
+  border: 2px solid orangered;
+  z-index: 2;
+}
+
+#editErrTxt {
+  color: red;
+  visibility: hidden;
+  display: block;
+}

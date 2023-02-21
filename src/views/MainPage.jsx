@@ -1,10 +1,12 @@
-const React = require("react");
-const Layout = require("./Layout");
+const React = require('react');
+const Layout = require('./Layout');
 
 module.exports = function MainPage({ user, books }) {
   return (
     <Layout user={user}>
       <div className="contflex">
+        {books
+        && (
         <ul className="entries-list">
           {books.map((book) => (
             <li className="entry-item" key={book.id}>
@@ -24,30 +26,10 @@ module.exports = function MainPage({ user, books }) {
               </div>
             </li>
           ))}
-        </div>
-
-        <ul className="Pets">
-          {pets && user
-            ? pets.map((pet) => (
-              <li key={pet.id}>
-                <img className="petPhoto" src={`/img/${pet.img}`} />
-                {pet.name}
-              </li>
-            ))
-            : (
-              <>
-              </>
-            )}
-          {user && !pets
-            && (
-              <h2>
-                <a href={`/private/addBook/${user?.id}`}>Add</a>
-                {' '}
-                some pets!
-              </h2>
-            )}
         </ul>
+        )}
       </div>
+
     </Layout>
   );
 };

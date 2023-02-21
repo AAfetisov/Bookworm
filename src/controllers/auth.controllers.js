@@ -1,8 +1,8 @@
 const bcrypt = require('bcrypt');
 const render = require('../lib/renderTemplate');
+const { sequelize, User } = require('../db/models');
 const SignInForm = require('../views/SignInForm');
 const SignUpForm = require('../views/SignUpForm');
-const { sequelize, User } = require('../db/models');
 
 function renderSignInForm(req, res) {
   const { user } = req.session;

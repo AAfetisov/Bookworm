@@ -38,6 +38,7 @@ const addbookForm = async (req, res) => {
     }
   }
 };
+console.log('asdsa');
 
 module.exports = {
   addBookPage,

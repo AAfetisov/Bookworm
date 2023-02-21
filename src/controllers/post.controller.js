@@ -5,5 +5,5 @@ function renderPost(req, res) {
   const { user } = req.session;
   const { id } = req.params;
 
-//   render(Post, user, res);
+  //   render(Post, user, res);
 }

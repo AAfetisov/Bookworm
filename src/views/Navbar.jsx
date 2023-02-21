@@ -2,13 +2,13 @@ const React = require('react');
 
 function Navbar({ user }) {
   return (
-    <nav className='navbar navbar-ligth fixed-top pt-0 bg-white main'>
+    <nav className='navbar navbar-ligth bg-primary text-warning main'>
       <div className='container'>
         <div>
           <img className='logoBW' src='/img/logoBW.png' alt='log' width={60} />
         </div>
         <div>
-          <p className='bookname'>BOOKWORM</p>
+          <p className='bookname text-warning'>BOOKWORM📚</p>
         </div>
         <ul className='container-controls'>
           {user ? (

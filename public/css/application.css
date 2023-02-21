@@ -265,7 +265,7 @@ body {
   border-radius: 5px 0 0 5px;
 }
 
-.btn {
+/* .btn {
   position: absolute;
   bottom: -20px;
   right: -20px;
@@ -281,7 +281,7 @@ body {
   border-radius: 5px;
   cursor: pointer;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.294);
-}
+} */
 
 i {
   margin-left: 20px;

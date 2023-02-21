@@ -7,7 +7,7 @@ function AddBook({ user, titleName }) {
       <script defer src="/js/addBook.js" />
       <div className="container text-left">
         <div className="row align-items-center">
-          <div className="col-md-6">
+          <div className="container d-flex justify-content-center mt-5">
             <form id="fetchF" name="addForm" action="/private/addbook/new" method="POST">
               <div className="mb-3">
                 <label htmlFor="exampleFormControlInput1" className="form-label">img:</label>
@@ -16,7 +16,7 @@ function AddBook({ user, titleName }) {
                   type="url"
                   className="form-control"
                   id="exampleFormControlInput1"
-                  placeholder="name@example.com"
+                  placeholder="url your img"
                 />
               </div>
               <div className="mb-3">

@@ -21,8 +21,9 @@ addForm?.addEventListener('submit', async (event) => {
       },
       body: JSON.stringify({
         // Что отправляется на бэк:
-        picture: event.target.picture.value,
-        bookTitle: event.target.bookTitle.value,
+        img: event.target.img.value,
+        title: event.target.title.value,
+        author: event.target.author.value,
         description: event.target.description.value,
       }),
     });

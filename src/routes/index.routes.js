@@ -1,14 +1,10 @@
 const express = require('express');
-const render = require('../lib/renderTemplate');
-const MainPage = require('../views/MainPage');
-const { sequelize, User } = require('../db/models');
+
+const mainPage = require('../controllers/mainPageController');
 
 const router = express.Router();
 
 
-router.get('/', async (req, res) => {
-  const { user } = req.session;
-  render(MainPage, { user }, res);
-});
+router.get('/', mainPage);
 
 module.exports = router;

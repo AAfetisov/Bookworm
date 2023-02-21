@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
   const { user } = req.session;
-  res.sendStatus(200);
+  render(MainPage, { user }, res);
 });
 
 module.exports = router;

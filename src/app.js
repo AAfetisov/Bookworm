@@ -12,7 +12,6 @@ const FileStore = require('session-file-store')(session);
 // routes
 const indexRoute = require('./routes/index.routes');
 const authRoute = require('./routes/auth.routes');
-const farmRoute = require('./routes/farm.routes');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

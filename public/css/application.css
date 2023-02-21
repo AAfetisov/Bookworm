@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Roboto:wght@300;400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Gloock&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloock&display=swap');
 
 /* *       - https://developer.mozilla.org/en-US/docs/Web/CSS/Universal_selectors
 /* :after  - https://developer.mozilla.org/en-US/docs/Web/CSS/%3A%3Aafter*/
@@ -22,7 +22,7 @@ html {
 
 body {
   height: 100%;
-  font: 16px "Roboto", Helvetica, Arial, sans-serif;
+  font: 20px 'Gloock', Helvetica, Arial, sans-serif;
 }
 
 .main-container {
@@ -52,7 +52,7 @@ body {
 .bookname {
   display: block;
   padding: 0.5rem 1rem;
-  font: 28px "Gloock", Helvetica, Arial, sans-serif;
+  font: 28px 'Gloock', Helvetica, Arial, sans-serif;
   color: black;
   font-weight: 400;
   margin-bottom: 6px;
@@ -101,7 +101,7 @@ body {
 
 .index-title {
   position: relative;
-  font: 36px "Poppins", Helvetica, Arial, sans-serif;
+  font: 36px 'Poppins', Helvetica, Arial, sans-serif;
   color: white;
   top: 100px;
   text-shadow: 1px 1px black;
@@ -114,7 +114,7 @@ body {
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
-  font: 20px "Roboto", Helvetica, Arial, sans-serif;
+  font: 20px 'Roboto', Helvetica, Arial, sans-serif;
   font-size: 1.25rem;
   font-weight: 300;
   color: black;
@@ -159,7 +159,7 @@ body {
 
 .input-search::placeholder {
   text-indent: 10px;
-  font: 16px "Roboto", Helvetica, Arial, sans-serif;
+  font: 16px 'Roboto', Helvetica, Arial, sans-serif;
   opacity: 0.7;
   color: black;
 }
@@ -173,7 +173,7 @@ body {
     hsl(240, 56%, 42%)
   );
   box-shadow: 0 0 20px 0 blue;
-  font: 16px "Roboto", Helvetica, Arial, sans-serif;
+  font: 16px 'Roboto', Helvetica, Arial, sans-serif;
   color: white;
   padding: 6px;
   border: 1px solid black;
@@ -226,7 +226,7 @@ body {
 }
 
 .result-text {
-  font: 20px "Poppins", Helvetica, Arial, sans-serif;
+  font: 20px 'Poppins', Helvetica, Arial, sans-serif;
   color: white;
 }
 
@@ -240,7 +240,7 @@ body {
   font-size: 3em;
   padding-bottom: 0.5em;
   color: black;
-  font: 16px "Roboto", Helvetica, Arial, sans-serif;
+  font: 16px 'Roboto', Helvetica, Arial, sans-serif;
   text-align: justify;
 }
 
@@ -290,7 +290,7 @@ i {
 
 .fa-arrow-right::before {
   /* padding-right: 20px; */
-  content: "\279C";
+  content: '\279C';
   display: inline-block;
   width: 15px;
   height: 15px;
@@ -328,7 +328,7 @@ h2 {
   font-size: 1rem;
   font-weight: 400;
   color: #818189;
-  font: 16px "Roboto", Helvetica, Arial, sans-serif;
+  font: 16px 'Roboto', Helvetica, Arial, sans-serif;
 }
 p {
   color: black;
@@ -370,7 +370,7 @@ p {
 .form-label {
   display: block;
   margin-bottom: 1em;
-  font: 24px "Roboto", Helvetica, Arial, sans-serif;
+  font: 24px 'Roboto', Helvetica, Arial, sans-serif;
   color: #351897;
   font-weight: 400;
 }
@@ -390,6 +390,7 @@ p {
   border: 1px solid black;
   border-radius: 6px;
   text-indent: 10px;
+  margin-top: 5px;
 }
 
 .login-input,
@@ -399,7 +400,7 @@ p {
 .image-input,
 .body-textarea::placeholder {
   text-indent: 10px;
-  font: 16px "Roboto", Helvetica, Arial, sans-serif;
+  font: 16px 'Roboto', Helvetica, Arial, sans-serif;
   opacity: 0.7;
   color: black;
 }
@@ -412,7 +413,7 @@ p {
     hsl(240, 56%, 42%)
   );
   box-shadow: 0 0 20px 0 blue;
-  font: 24px "Roboto", Helvetica, Arial, sans-serif;
+  font: 24px 'Roboto', Helvetica, Arial, sans-serif;
   color: white;
   padding: 1em;
   text-decoration: none;
@@ -433,14 +434,35 @@ p {
   transform: scale(1.05);
 }
 
-.title-recipe {
+/* LOGIN!!!!!!!!!!! */
+
+#authSignInForm,
+#authSignUpForm {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.email-input {
+  margin-bottom: 10px;
+  /* padding: 50px; */
+}
+
+.title-login {
   display: flex;
   justify-content: center;
   align-items: center;
-  font: 32px "Roboto", Helvetica, Arial, sans-serif;
-  color: #351897;
+}
+
+.title-login h2 {
+  margin-top: 5px;
+  font: 28px 'Gloock', Arial, sans-serif;
+  color: black;
   font-weight: 400;
 }
+
+/* */
 
 .main-recipes,
 .mainBoxRecipe {
@@ -509,14 +531,14 @@ p {
 
 .titleBox p,
 .nameBox p {
-  font: 32px "Roboto", Helvetica, Arial, sans-serif;
+  font: 32px 'Roboto', Helvetica, Arial, sans-serif;
   color: #351897;
   font-weight: 600;
 }
 
 .timeBox p,
 .clockBox {
-  font: 28px "Roboto", Helvetica, Arial, sans-serif;
+  font: 28px 'Roboto', Helvetica, Arial, sans-serif;
   color: black;
   font-weight: 300;
 }
@@ -542,7 +564,7 @@ p {
 .recipe-info,
 .recipe-steps,
 .body-textarea {
-  font: 15px "Roboto", Helvetica, Arial, sans-serif;
+  font: 15px 'Roboto', Helvetica, Arial, sans-serif;
   color: black;
   justify-content: center;
 }
@@ -635,7 +657,7 @@ p {
 @media (max-width: 767px) {
   body {
     max-width: 767px;
-    font: 10px "Roboto", Helvetica, Arial, sans-serif;
+    font: 10px 'Roboto', Helvetica, Arial, sans-serif;
   }
 
   .index-img {
@@ -644,15 +666,15 @@ p {
   }
 
   .index-title {
-    font: 14px "Poppins", Helvetica, Arial, sans-serif;
+    font: 14px 'Poppins', Helvetica, Arial, sans-serif;
   }
 
   .nav-link {
-    font: 12px "Roboto", Helvetica, Arial, sans-serif;
+    font: 12px 'Roboto', Helvetica, Arial, sans-serif;
   }
 
   .index-info {
-    font: 16px "Roboto", Helvetica, Arial, sans-serif;
+    font: 16px 'Roboto', Helvetica, Arial, sans-serif;
     text-align: justify;
   }
 
@@ -661,7 +683,7 @@ p {
   }
 
   .button-search {
-    font: 8px "Roboto", Helvetica, Arial, sans-serif;
+    font: 8px 'Roboto', Helvetica, Arial, sans-serif;
   }
 
   .img-entries {
@@ -672,11 +694,11 @@ p {
   .text-info,
   .time-title,
   .time {
-    font: 8px "Roboto", Helvetica, Arial, sans-serif;
+    font: 8px 'Roboto', Helvetica, Arial, sans-serif;
   }
 
   .text-title {
-    font: 8px "Roboto", Helvetica, Arial, sans-serif;
+    font: 8px 'Roboto', Helvetica, Arial, sans-serif;
   }
 
   .gif {

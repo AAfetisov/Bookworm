@@ -1,42 +1,36 @@
-const React = require("react");
+const React = require('react');
 
 function Navbar({ user }) {
   return (
-    <nav className="navbar navbar-ligth fixed-top pt-0 bg-white main">
-      <div className="container">
+    <nav className='navbar navbar-ligth fixed-top pt-0 bg-white main'>
+      <div className='container'>
         <div>
-          <img className="logoBW" src="/img/logoBW.png" alt="log" width={60} />
+          <img className='logoBW' src='/img/logoBW.png' alt='log' width={60} />
         </div>
         <div>
-          <p className="bookname">BOOKWORM</p>
+          <p className='bookname'>BOOKWORM</p>
         </div>
-        <ul className="container-controls">
+        <ul className='container-controls'>
           {user ? (
             <>
-              <div className="gif">
-                <img
-                  src="http://liubavyshka.my1.ru/_ph/19/2/908531413.gif?1676464004"
-                  alt=""
-                />
-              </div>
-              <li className="control">
-                <p className="nav-link px-3">HELLO, {user.name}!</p>
+              <li className='control'>
+                <p className='nav-link px-3'>HELLO, {user.name}!</p>
               </li>
-              <li className="control">
-                <a href="/private/logout" className="nav-link px-3">
+              <li className='control'>
+                <a href='/private/logout' className='nav-link px-3'>
                   LOGOUT
                 </a>
               </li>
             </>
           ) : (
             <>
-              <li className="control">
-                <a href="/auth/signin" className="nav-link px-3">
+              <li className='control'>
+                <a href='/auth/signin' className='nav-link px-3'>
                   SIGN IN
                 </a>
               </li>
-              <li className="control">
-                <a className="signup nav-link px-3" href="/auth/signup">
+              <li className='control'>
+                <a className='signup nav-link px-3' href='/auth/signup'>
                   SIGN UP
                 </a>
               </li>

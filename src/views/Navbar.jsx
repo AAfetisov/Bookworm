@@ -20,7 +20,7 @@ function Navbar({ user }) {
                 />
               </div>
               <li className="control">
-                <p className="nav-link px-3">HELLO, {username}!</p>
+                <p className="nav-link px-3">HELLO, {user.name}!</p>
               </li>
               <li className="control">
                 <a href="/private/logout" className="nav-link px-3">
@@ -31,12 +31,12 @@ function Navbar({ user }) {
           ) : (
             <>
               <li className="control">
-                <a href="/private" className="nav-link px-3">
+                <a href="/auth/signin" className="nav-link px-3">
                   SIGN IN
                 </a>
               </li>
               <li className="control">
-                <a className="signup nav-link px-3" href="/auth">
+                <a className="signup nav-link px-3" href="/auth/signup">
                   SIGN UP
                 </a>
               </li>

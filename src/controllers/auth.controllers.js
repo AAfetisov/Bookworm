@@ -6,6 +6,7 @@ const SignUpForm = require('../views/SignUpForm');
 
 function renderSignInForm(req, res) {
   const { user } = req.session;
+  // console.log(user, "++++++++++++++++++++++++++++++");
   render(SignInForm, user, res);
 }
 function renderSignUpForm(req, res) {
@@ -16,13 +17,21 @@ function renderSignUpForm(req, res) {
 async function checkUserAndCreateSession(req, res) {
   const { email, password } = req.body;
 
-  if (!email || !password) { res.status(401); res.json({ err: 'Email or password is empty' }); return; }
+  if (!email || !password) {
+    res.status(401);
+    res.json({ err: 'Email or password is empty' });
+    return;
+  }
 
   try {
     const user = await User.findOne({ where: { email } });
     if (user) {
       const passCheck = await bcrypt.compare(password, user.password);
-      if (!passCheck) { res.status(401); res.json({ err: 'Wrong password' }); return; }
+      if (!passCheck) {
+        res.status(401);
+        res.json({ err: 'Wrong password' });
+        return;
+      }
       req.session.user = { id: user.id, name: user.name, email: user.email };
       res.sendStatus(200);
     } else {
@@ -36,9 +45,7 @@ async function checkUserAndCreateSession(req, res) {
 
 async function createUserAndSession(req, res) {
   try {
-    const {
-      name, email, password,
-    } = req.body;
+    const { name, email, password } = req.body;
 
     if (!name || !email || !password) {
       res.status(401).json({ err: 'Empty name, email or password' });
@@ -70,12 +77,11 @@ async function createUserAndSession(req, res) {
 
 function destroySession(req, res) {
   req.session.destroy((err) => {
-    if (err)res.send(err);
+    if (err) res.send(err);
     res.clearCookie('exam');
     res.redirect('/');
   });
 }
-
 
 module.exports = {
   renderSignUpForm,

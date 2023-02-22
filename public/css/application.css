@@ -29,6 +29,11 @@ body {
   margin: 0 auto;
 }
 
+#errText {
+  margin-top: 20px;
+  visibility: hidden;
+}
+
 .banner {
   background-color: #fefefe;
   padding-top: 1em;
@@ -38,7 +43,19 @@ body {
   overflow: auto;
 }
 
-/* MY CSS*/
+.authSubmitBtn,
+.authSubmitBtn {
+  display: flex;
+  align-items: center;
+  background-color: rgb(8, 231, 90);
+  color: black;
+  padding: 22px 45px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  border-radius: 5px;
+  text-decoration: none;
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.356);
+}
 
 .imgBox {
   width: 30%;
@@ -68,8 +85,6 @@ body {
   transform: scale(1.05);
 }
 
-
-
 .book-list {
   width: 100%;
   padding-top: 20px;
@@ -97,11 +112,18 @@ body {
 .img-entries {
   /* margin-top: 20px; */
   /* padding-left: 30px; */
-  width: 220px;
-  height: 260px;
-  flex-shrink: 0;
+  width: 250px;
+  height: 280px;
+  /* flex-shrink: 0; */
   box-shadow: 0 15px 20px rgba(0, 0, 0, 0.356);
 }
+
+/* .img-entries {
+  width: 300px;
+  height: 300px;
+  flex-shrink: 0;
+  border-radius: 5px 0 0 5px;
+} */
 
 .container__text {
   padding: 10px 40px 0;
@@ -122,7 +144,7 @@ body {
 } */
 
 .text-info {
-  font: 16px Arial, sans-serif;
+  font: 16px 'Gloock', Helvetica, Arial, sans-serif;
   text-align: justify;
 }
 
@@ -131,6 +153,13 @@ body {
   align-items: center;
   justify-content: center;
   margin: auto;
+}
+
+.title-login h2 {
+  margin-top: 5px;
+  font: 28px 'Gloock', Helvetica, Arial, sans-serif;
+  color: black;
+  font-weight: 400;
 }
 
 .text h2 {
@@ -216,9 +245,9 @@ body {
   height: 26px;
 }
 
+/* .background-container {
 
-.background-container {
-
+} */
 
 .star-rating {
   height: 20px;
@@ -292,13 +321,13 @@ body {
 
 .index-img {
   /* max-width: 1500px; */
-  /* min-width: 50%; */
-  position: absolute;
+/* min-width: 50%; */
+/* position: absolute;
   background: linear-gradient(hsl(186, 76%, 16%),
       hsl(223, 90%, 60%),
       hsl(240, 56%, 42%));
   box-shadow: 0 0 20px 0 blue;
-}
+} */
 
 .index-title {
   position: relative;
@@ -368,9 +397,11 @@ body {
 .button-search {
   width: 15%;
   height: 50px;
-  background: linear-gradient(hsl(186, 76%, 16%),
-      hsl(223, 90%, 60%),
-      hsl(240, 56%, 42%));
+  background: linear-gradient(
+    hsl(186, 76%, 16%),
+    hsl(223, 90%, 60%),
+    hsl(240, 56%, 42%)
+  );
   box-shadow: 0 0 20px 0 blue;
   font: 16px 'Roboto', Helvetica, Arial, sans-serif;
   color: white;
@@ -405,9 +436,11 @@ body {
   padding: 20px;
   border-radius: 10px;
   transition: 0.2s;
-  background: linear-gradient(hsl(186, 76%, 16%),
-      hsl(223, 90%, 60%),
-      hsl(240, 56%, 42%));
+  background: linear-gradient(
+    hsl(186, 76%, 16%),
+    hsl(223, 90%, 60%),
+    hsl(240, 56%, 42%)
+  );
   box-shadow: 0 0 20px 0 blue;
 }
 
@@ -455,13 +488,6 @@ body {
   position: relative;
 }
 
-.img-entries {
-  width: 300px;
-  height: 300px;
-  flex-shrink: 0;
-  border-radius: 5px 0 0 5px;
-}
-
 /* .btn {
   position: absolute;
   bottom: -20px;
@@ -500,10 +526,6 @@ i {
 .fa,
 .fas {
   font-weight: 900;
-}
-
-.container__text {
-  padding: 40px 40px 0;
 }
 
 h1 {
@@ -606,9 +628,11 @@ p {
 
 .btnAuth,
 .btnPublish {
-  background: linear-gradient(hsl(186, 76%, 16%),
-      hsl(223, 90%, 60%),
-      hsl(240, 56%, 42%));
+  background: linear-gradient(
+    hsl(186, 76%, 16%),
+    hsl(223, 90%, 60%),
+    hsl(240, 56%, 42%)
+  );
   box-shadow: 0 0 20px 0 blue;
   font: 24px 'Roboto', Helvetica, Arial, sans-serif;
   color: white;
@@ -650,13 +674,6 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.title-login h2 {
-  margin-top: 5px;
-  font: 28px 'Gloock', Arial, sans-serif;
-  color: black;
-  font-weight: 400;
 }
 
 /* */
@@ -849,7 +866,8 @@ p {
   height: 30px;
 }
 
-@media (min-width: 768px) and (max-width: 1400px) {}
+@media (min-width: 768px) and (max-width: 1400px) {
+}
 
 @media (max-width: 767px) {
   body {
@@ -887,8 +905,6 @@ p {
     width: 110px;
     height: 110px;
   }
-
-  
 
   .gif {
     visibility: hidden;

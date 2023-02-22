@@ -17,10 +17,10 @@ function SignUpForm({ user = {} }) {
             <input className="login-input" type='text' name='email' id='email' />
             <label htmlFor='password'>Password:</label>
             <input className="login-input" type='password' name='password' id='password' />
-            <button id='authSubmitBtn' className='button' type='submit'>
+            <button id='authSubmitBtn' className='authSubmitBtn' type='submit'>
               Register
             </button>
-            <div id='errText' className='authErrTxt'>
+            <div id='errText'>
               Wrong E-mail or Password
             </div>
           </form>

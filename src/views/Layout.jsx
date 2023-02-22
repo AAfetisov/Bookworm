@@ -9,7 +9,7 @@ module.exports = function Layout({ children, user }) {
         <meta charSet="UTF-8" />
         <link rel="stylesheet" href="/css/reset.css" />
         <link rel="stylesheet" href="/css/application.css" />
-
+        <link rel="stylesheet" href="/css/addbook.css" />
         <script
           src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
           defer

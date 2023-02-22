@@ -13,8 +13,8 @@ function Navbar({ user }) {
         <ul className="container-controls">
           {user ? (
             <>
-              <li className='control'>
-              <a href='' className='nav-link px-3'>
+              <li className="control">
+                <a href="/private/addbook/new" className="nav-link px-3">
                   Add book
                 </a>
 

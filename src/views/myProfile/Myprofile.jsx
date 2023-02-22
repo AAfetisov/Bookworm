@@ -99,6 +99,7 @@ function MyProfile({ user, posts }) {
           </h5>
         )}
       </div>
+      <script defer src="/js/Book.js" />
     </Layout>
   );
 }

@@ -68,58 +68,43 @@ body {
   transform: scale(1.05);
 }
 
-.contflex {
-  display: flex;
-  align-items: center;
-}
+
 
 .book-list {
   width: 100%;
-  /* flex-wrap: wrap; */
   padding-top: 20px;
-  padding-left: 20px;
-  list-style-type: none;
+  padding-left: 50px;
+  padding-right: 50px;
+  flex-wrap: wrap;
   display: flex;
-
-  /* justify-content:space-between; */
-  /* align-items: center; */
+  justify-content: space-between;
+  align-items: center;
 }
 
 .book-item {
-  flex-wrap: wrap;
-  /* padding-bottom: 4em; */
+  width: 350px;
+  height: 550px;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  padding-right: 10px;
-}
-
-.container-entries {
-  width: 100%;
-  align-items: center;
+  /* flex-direction: column; */
   flex-wrap: wrap;
   background-color: #fff;
-  display: flex;
   border-radius: 20px;
   box-shadow: 0 15px 20px rgba(0, 0, 0, 0.356);
-  width: 56%;
 }
 
 .img-entries {
-  padding-top: 20px;
-  padding-left: 20px;
+  /* margin-top: 20px; */
+  /* padding-left: 30px; */
   width: 220px;
   height: 260px;
   flex-shrink: 0;
-  border-radius: 5px 0 0 5px;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.356);
 }
 
 .container__text {
-  padding: 20px 40px 0;
+  padding: 10px 40px 0;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -132,10 +117,13 @@ ul {
   margin-bottom: 6px;
 }
 
-.text-info,
-.time-title,
-.time {
+/* .text-title {
+  font: 8px 'Roboto', Helvetica, Arial, sans-serif;
+} */
+
+.text-info {
   font: 16px Arial, sans-serif;
+  text-align: justify;
 }
 
 .text {
@@ -215,6 +203,7 @@ ul {
   justify-content: space-between;
   margin: 20px 0 10px;
 }
+
 .container_comments {
   width: 50%;
   display: flex;
@@ -227,7 +216,62 @@ ul {
   height: 26px;
 }
 
+
+.background-container {
+
+
+.star-rating {
+  height: 20px;
+  display: flex;
+  align-items: center;
+  width: 160px;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  margin: 20px auto;
+  position: relative;
+}
+/* hide the inputs */
+.star-rating input {
+  display: none;
+}
+/* set properties of all labels */
+.star-rating > label {
+  width: 30px;
+  height: 30px;
+  font-family: Arial;
+  font-size: 30px;
+  transition: 0.2s ease;
+  color: orange;
+}
+/* give label a hover state */
+.star-rating label:hover {
+  color: #ff69b4;
+  transition: 0.2s ease;
+}
+.star-rating label:active::before {
+  transform: scale(1.1);
+}
+
+/* set shape of unselected label */
+.star-rating label::before {
+  content: '\2606';
+  position: absolute;
+  top: 0px;
+  line-height: 26px;
+}
+/* set full star shape for checked label and those that come after it */
+.star-rating input:checked ~ label:before {
+  content: '\2605';
+}
+
+@-moz-document url-prefix() {
+  .star-rating input:checked ~ label:before {
+    font-size: 36px;
+    line-height: 21px;
+  }
+}
 /* .background-container {
+
   background-color: rgb(186, 199, 229);
   padding-top: 2em;
   padding-left: 1em;
@@ -235,7 +279,7 @@ ul {
   padding-bottom: 8em;
   margin-bottom: 16em;
   color: #fefefe;
-} */
+}
 
 .index-div {
   max-width: 1100px;
@@ -250,11 +294,9 @@ ul {
   /* max-width: 1500px; */
   /* min-width: 50%; */
   position: absolute;
-  background: linear-gradient(
-    hsl(186, 76%, 16%),
-    hsl(223, 90%, 60%),
-    hsl(240, 56%, 42%)
-  );
+  background: linear-gradient(hsl(186, 76%, 16%),
+      hsl(223, 90%, 60%),
+      hsl(240, 56%, 42%));
   box-shadow: 0 0 20px 0 blue;
 }
 
@@ -326,11 +368,9 @@ ul {
 .button-search {
   width: 15%;
   height: 50px;
-  background: linear-gradient(
-    hsl(186, 76%, 16%),
-    hsl(223, 90%, 60%),
-    hsl(240, 56%, 42%)
-  );
+  background: linear-gradient(hsl(186, 76%, 16%),
+      hsl(223, 90%, 60%),
+      hsl(240, 56%, 42%));
   box-shadow: 0 0 20px 0 blue;
   font: 16px 'Roboto', Helvetica, Arial, sans-serif;
   color: white;
@@ -365,11 +405,9 @@ ul {
   padding: 20px;
   border-radius: 10px;
   transition: 0.2s;
-  background: linear-gradient(
-    hsl(186, 76%, 16%),
-    hsl(223, 90%, 60%),
-    hsl(240, 56%, 42%)
-  );
+  background: linear-gradient(hsl(186, 76%, 16%),
+      hsl(223, 90%, 60%),
+      hsl(240, 56%, 42%));
   box-shadow: 0 0 20px 0 blue;
 }
 
@@ -389,6 +427,10 @@ ul {
   color: white;
 }
 
+.entry-item {
+  padding-bottom: 4em;
+}
+
 .entry-title,
 .entry-time,
 .entry-body {
@@ -398,6 +440,45 @@ ul {
   font: 16px 'Roboto', Helvetica, Arial, sans-serif;
   text-align: justify;
 }
+
+.entries-list {
+  padding-top: 20px;
+  list-style-type: none;
+}
+
+.container-entries {
+  background-color: #fff;
+  position: relative;
+  display: flex;
+  border-radius: 5px;
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.356);
+  position: relative;
+}
+
+.img-entries {
+  width: 300px;
+  height: 300px;
+  flex-shrink: 0;
+  border-radius: 5px 0 0 5px;
+}
+
+/* .btn {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  background-color: #fc9400;
+  color: #fff;
+  padding: 22px 45px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.294);
+} */
 
 i {
   margin-left: 20px;
@@ -421,6 +502,25 @@ i {
   font-weight: 900;
 }
 
+.container__text {
+  padding: 40px 40px 0;
+}
+
+h1 {
+  color: #351897;
+  font-weight: 400;
+  margin-bottom: 6px;
+}
+
+.container__text__timing {
+  display: flex;
+  margin: 20px 0 10px;
+}
+
+.container__text__timing_time {
+  margin-right: 40px;
+}
+
 h2 {
   margin-bottom: 5px;
   font-size: 1rem;
@@ -428,6 +528,7 @@ h2 {
   color: #818189;
   font: 16px 'Roboto', Helvetica, Arial, sans-serif;
 }
+
 p {
   color: black;
   font-size: 1.2rem;
@@ -505,11 +606,9 @@ p {
 
 .btnAuth,
 .btnPublish {
-  background: linear-gradient(
-    hsl(186, 76%, 16%),
-    hsl(223, 90%, 60%),
-    hsl(240, 56%, 42%)
-  );
+  background: linear-gradient(hsl(186, 76%, 16%),
+      hsl(223, 90%, 60%),
+      hsl(240, 56%, 42%));
   box-shadow: 0 0 20px 0 blue;
   font: 24px 'Roboto', Helvetica, Arial, sans-serif;
   color: white;
@@ -600,6 +699,7 @@ p {
   height: 100%;
   border-right: 1px solid black;
 }
+
 .recipe-image,
 .url-recipe {
   width: 100%;
@@ -749,8 +849,7 @@ p {
   height: 30px;
 }
 
-@media (min-width: 768px) and (max-width: 1400px) {
-}
+@media (min-width: 768px) and (max-width: 1400px) {}
 
 @media (max-width: 767px) {
   body {
@@ -789,9 +888,7 @@ p {
     height: 110px;
   }
 
-  .text-title {
-    font: 8px 'Roboto', Helvetica, Arial, sans-serif;
-  }
+  
 
   .gif {
     visibility: hidden;
@@ -811,7 +908,7 @@ p {
   }
 }
 
-img{
+img {
   max-width: 300px;
   max-height: 350px;
 }

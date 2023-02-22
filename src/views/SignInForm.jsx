@@ -16,8 +16,10 @@ function SignInForm({ user }) {
             <input className="login-input" type="text" name="email" id="email" />
             <label htmlFor="login-input">Password:</label>
             <input className="login-input" type="password" name="password" id="password" />
-            <button id="authSubmitBtn" className="button" type="submit">Login</button>
-            <span className="login-input" id="errText">Wrong E-mail or Password</span>
+            <button id="authSubmitBtn" className="authSubmitBtn" type="submit">Login</button>
+            <div id='errText'>
+            Wrong E-mail or Password
+            </div>
           </form>
         </div>
       </>

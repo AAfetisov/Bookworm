@@ -9,18 +9,20 @@ function SignUpForm({ user }) {
           <h2>Регистрация</h2>
         </div>
 
-        <div className="cont">
-          <form id="authSignUpForm" action="/auth/signup" method="post">
-            <label htmlFor="name">Name:</label>
-            <input className="login-input" type="text" name="name" id="name" />
-            <label htmlFor="email">E-mail:</label>
-            <input className="login-input" type="text" name="email" id="email" />
-            <label htmlFor="password">Password:</label>
-            <input className="login-input" type="password" name="password" id="password" />
-            <button id="authSubmitBtn" className="button" type="submit">
+
+        <div className='cont'>
+          <form id='authSignUpForm' action='/auth/signup' method='post'>
+            <label htmlFor='name'>Name:</label>
+            <input className="login-input" type='text' name='name' id='name' />
+            <label htmlFor='email'>E-mail:</label>
+            <input className="login-input" type='text' name='email' id='email' />
+            <label htmlFor='password'>Password:</label>
+            <input className="login-input" type='password' name='password' id='password' />
+            <button id='authSubmitBtn' className='authSubmitBtn' type='submit'>
               Register
             </button>
-            <div id="errText" className="authErrTxt">
+            <div id='errText'>
+
               Wrong E-mail or Password
             </div>
           </form>

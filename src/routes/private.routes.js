@@ -2,10 +2,14 @@ const express = require('express');
 
 const router = express.Router();
 
-const { addBookPage, addbookForm } = require('../controllers/addBookController');
-const { renderMyProfile, MyPostDelete } = require('../controllers/myprofileController');
-
-// const { editFarmPage, editFarm } = require('../controllers/editFarmController')
+const {
+  renderMyProfile,
+  MyPostDelete,
+  addBookPage,
+  addbookForm,
+  putformPage,
+  postEditform,
+} = require('../controllers/myprofileController');
 
 
 // Импортим middleware, котороя будет проверять авторизованного пользователя
@@ -14,6 +18,12 @@ const { renderMyProfile, MyPostDelete } = require('../controllers/myprofileContr
 // myProfile:
 router.get('/myprofile', renderMyProfile);
 router.delete('/myprofile', MyPostDelete);
+
+
+// private/editform/:id
+router.get('/private/editform/:id', putformPage);
+router.put('/private/editform/:id', postEditform);
+
 
 // addFarmPage:
 router.get('/addbook/new', addBookPage);

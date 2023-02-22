@@ -6,7 +6,6 @@ const SignUpForm = require('../views/SignUpForm');
 
 function renderSignInForm(req, res) {
   const { user } = req.session;
-  // console.log(user, "++++++++++++++++++++++++++++++");
   render(SignInForm, user, res);
 }
 function renderSignUpForm(req, res) {

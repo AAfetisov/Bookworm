@@ -144,7 +144,7 @@ body {
 } */
 
 .text-info {
-  font: 16px 'Gloock', Helvetica, Arial, sans-serif;
+  font: 16px Arial, sans-serif;
   text-align: justify;
 }
 
@@ -155,14 +155,16 @@ body {
   margin: auto;
 }
 
-.title-login h2 {
+.title-login h2,
+.bookTitle h2 {
   margin-top: 5px;
   font: 28px 'Gloock', Helvetica, Arial, sans-serif;
   color: black;
   font-weight: 400;
 }
 
-.text h2 {
+.text h2,
+.textProfile h2 {
   font: 40px 'Gloock', Helvetica, Arial, sans-serif;
   color: black;
   text-decoration: underline;
@@ -181,13 +183,44 @@ body {
   box-shadow: 0 15px 20px rgba(0, 0, 0, 0.356);
 }
 
+.textProfile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(8, 231, 90);
+}
+
 .leftBox {
-  width: 40%;
+  width: 30%;
 }
 
 .imgPost {
   width: 500px;
   height: 500px;
+}
+
+.rigthBox {
+  width: 60%;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.bookTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.author p {
+  color: black;
+  font-size: 18px;
+  text-align: justify;
+}
+
+.description p {
 }
 
 .buttonEditPostForm {
@@ -551,12 +584,6 @@ h2 {
   font: 16px 'Roboto', Helvetica, Arial, sans-serif;
 }
 
-p {
-  color: black;
-  font-size: 1.2rem;
-  text-align: justify;
-}
-
 .time {
   color: #351897;
   font-weight: 600;
@@ -724,14 +751,14 @@ p {
   border-radius: 0%;
 }
 
-.rigthBox,
+/* .rigthBox,
 .rigthBoxRecipe {
   width: 50%;
   height: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
-}
+} */
 
 .titleBox,
 .timeBox,

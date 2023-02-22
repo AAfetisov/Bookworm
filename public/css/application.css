@@ -98,7 +98,7 @@ body {
   flex-wrap: wrap;
   background-color: #fff;
   display: flex;
-  border-radius: 20px 0 0 20px;
+  border-radius: 20px;
   box-shadow: 0 15px 20px rgba(0, 0, 0, 0.356);
   width: 56%;
 }
@@ -146,8 +146,9 @@ ul {
 }
 
 .text h2 {
-  font: 20px 'Gloock', Helvetica, Arial, sans-serif;
+  font: 40px 'Gloock', Helvetica, Arial, sans-serif;
   color: black;
+  text-decoration: underline;
 }
 
 .PostContainer {
@@ -206,6 +207,24 @@ ul {
   border-radius: 5px;
   cursor: pointer;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.294);
+}
+
+.container__commentsFavorites {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0 10px;
+}
+.container_comments {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bookmark,
+.comments {
+  width: 26px;
+  height: 26px;
 }
 
 /* .background-container {
@@ -400,14 +419,6 @@ i {
 .fa,
 .fas {
   font-weight: 900;
-}
-
-.container__text__timing {
-  display: flex;
-  margin: 20px 0 10px;
-}
-.container__text__timing_time {
-  margin-right: 40px;
 }
 
 h2 {

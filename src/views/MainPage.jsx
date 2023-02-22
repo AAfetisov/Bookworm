@@ -2,7 +2,7 @@ const React = require('react');
 const Layout = require('./Layout');
 
 module.exports = function MainPage({ user, books }) {
-  console.log(user);
+  console.log(user, '+++++++++++++++++++++++++++++++');
   return (
     <Layout user={user}>
       <div className='contflex'>
@@ -38,10 +38,23 @@ module.exports = function MainPage({ user, books }) {
                     </div>
                     <p className='text-info'>{book.description}</p>
 
-                    <div className='container__text__timing'>
-                      <div className='container__text__timing_time'>
-                        <h2 className='time-title'>AUTHOR:</h2>
-                        <p className='time'>{book.author}</p>
+                    <div className='container__commentsFavorites'>
+                      <div className='container__user'>
+                        <h2 className='info'>By:</h2>
+                        <p className='name'>{user.name}</p>
+                        {/* <p className='date'>{user.createdAt}</p> */}
+                      </div>
+                      <div className='container_comments'>
+                        <img
+                          className='comments'
+                          src='/img/Comment.png'
+                          alt='comment'
+                        />
+                        <img
+                          className='bookmark'
+                          src='/img/Bookmark_black.png'
+                          alt='bookmark'
+                        />
                       </div>
                     </div>
                   </div>

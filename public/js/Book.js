@@ -3,6 +3,9 @@ const { addForm } = document.forms;
 // console.log(addForm);
 const myProfile = document.querySelector('.MyProfile');
 // console.log(myProfile);
+// Достаёем форму и кнопку
+const { editForm } = document.forms;
+// console.log(editForm);
 
 
 // Добавление
@@ -64,6 +67,52 @@ if (myProfile) {
       } catch (error) {
         console.error(error);
       }
+    }
+    if (event.target.id === 'buttonEditPostForm') {
+      const postchange = event.target.closest('.PostContainer');
+      document.location = `private/editform/${postchange.id}`;
+    }
+  });
+}
+
+if (editForm) {
+  editForm.addEventListener('submit', async (event) => {
+    // Останавливаем событие
+    event.preventDefault();
+    try {
+      const postId = event.target.children[0].id;
+      // Достаём данные из inputs
+      const {
+        img, title, description, author,
+      } = editForm;
+      // Заворачиваем в объект
+      const myPost = {
+        img: img.value,
+        title: title.value,
+        description: description.value,
+        author: author.value,
+      };
+      // Fetch:
+      const response = await fetch(
+        `/private/private/editform/${postId}`,
+        {
+          method: 'Put',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(myPost),
+        },
+      );
+      if (response.status !== 200) {
+        const post = await response.json();
+        alert(post.error);
+      } else {
+        response.json();
+        alert('Данные успешно изменены!');
+        document.location = '/private/myprofile';
+      }
+    } catch (error) {
+      console.error(error);
     }
   });
 }

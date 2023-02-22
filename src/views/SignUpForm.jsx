@@ -1,13 +1,14 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-function SignUpForm({ user = {} }) {
+function SignUpForm({ user }) {
   return (
     <Layout user={user}>
       <>
-        <div className='title-login'>
+        <div className="title-login">
           <h2>Регистрация</h2>
         </div>
+
 
         <div className='cont'>
           <form id='authSignUpForm' action='/auth/signup' method='post'>
@@ -21,12 +22,13 @@ function SignUpForm({ user = {} }) {
               Register
             </button>
             <div id='errText'>
+
               Wrong E-mail or Password
             </div>
           </form>
         </div>
       </>
-      <script src='/js/signup.js' />
+      <script src="/js/signup.js" />
     </Layout>
   );
 }

@@ -1,14 +1,14 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-function SignInForm({ user = {} }) {
+function SignInForm({ user }) {
   return (
     <Layout user={user}>
       <>
-      <div className="title-login">
-      <h2>Логин</h2>
-      </div>
-        
+        <div className="title-login">
+          <h2>Логин</h2>
+        </div>
+
         <div className="cont">
 
           <form id="authSignInForm" action="/auth/signin" method="post">

@@ -5,15 +5,16 @@ const EditPostForm = require('../views/myProfile/EditPost');
 
 // Импортим модель из БД
 const { Book } = require('../db/models');
+const isNumeric = require('../lib/utils');
 
 const renderMyProfile = async (req, res) => {
-  const user = req.session?.user;
-  const { id } = req.session?.user;
+  const { user } = req.session;
+  if (!user) { res.status(400).send('Authentication required'); return; }
   try {
     const posts = await Book.findAll({
-      raw: true,
+
       order: [['updatedAt', 'DESC']],
-      where: { userId: id },
+      where: { userId: user.id },
     });
     renderTemplate(MyProfile, { user, posts }, res);
   } catch (error) {
@@ -22,57 +23,54 @@ const renderMyProfile = async (req, res) => {
 };
 
 const MyPostDelete = async (req, res) => {
-  const user = req.session?.user;
-  // console.log('===========>',req.body);
-  // const { id } = req.params;
+  const { user } = req.session;
   const { id } = req.body;
+
+  if (!isNumeric(id)) { res.status(401).send('404 Page does not exist!'); return; }
+  if (!user) { res.status(400).send('Authentication required'); return; }
+
   try {
-    const deletePost = await Book.destroy({
-      where: { id },
-    });
-    console.log('Пост успешно удалён!');
-    res.json({ status: 200 });
+    const postOwner = await Book.findByPk(id);
+    if (postOwner?.userId !== user.id) { res.status(401).json({ err: 'Cant delete posts of other users' }); return; }
+    const deletePost = await Book.destroy({ where: { id } });
+    res.sendStatus(200);
+    return;
   } catch (error) {
     console.error(error);
+    res.status(500).json({ err: 'Post does not exist or db error' });
   }
 };
 
 // ! addBook
 
-// Рендерим страницу AddBookForm
 const addBookPage = (req, res) => {
   const user = req.session?.user?.name;
   const titleName = 'Add BookReview';
   renderTemplate(AddBook, { user, titleName }, res);
 };
 
-// Post AddBookForm:
+
 const addbookForm = async (req, res) => {
-  // Что пришло в req.body
-  console.log('req.body addBookForm -->', req.body);
-  // Достаём userId из сессии
-  const { id } = req.session?.user;
-  console.log('userID ==>', id);
+  const { user } = req.session;
+  const {
+    author, title, description, img,
+  } = req.body;
+  if (!user) { res.status(400).send('Authentication required'); return; }
+  if (!author || !title || !description || !img) { res.status(401).json({ err: 'Fields can not be empty' }); return; }
+
   try {
-    // Достаём данные из формы
-    const {
-      author, title, description, img,
-    } = req.body;
-    // Добавляем книгу в таблицу Book:
     const createBook = await Book.create({
-      userId: id,
+      userId: user.id,
       img,
       title,
       author,
       description,
     });
-    console.log(`Пост пользователя ${req.session?.user.name} успешно опубликован!`);
-    // res.status(200).end();
-    res.json({ status: 200 });
+    res.sendStatus(200);
   } catch (error) {
     if (error) {
-      console.log('3) ОШИБКА ПРИ СОЗДАНИИ: =====> Текст ошибки:', error.message);
-      res.json({ error: error.message });
+      console.log(error);
+      res.status(500).json({ err: error });
     }
   }
 };

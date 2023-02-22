@@ -13,13 +13,11 @@ function Navbar({ user }) {
         <ul className="container-controls">
           {user ? (
             <>
-              <li className="control">
-                <p className="nav-link px-3">
-                  HELLO,
-                  {' '}
-                  {user.name}
-                  !
-                </p>
+              <li className='control'>
+              <a href='' className='nav-link px-3'>
+                  Add book
+                </a>
+
               </li>
               <li className="control">
                 <a href="/private/myprofile" className="nav-link px-3">

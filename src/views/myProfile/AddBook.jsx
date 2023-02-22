@@ -4,7 +4,6 @@ const Layout = require('../Layout');
 function AddBook({ user, titleName }) {
   return (
     <Layout user={user} title={titleName}>
-      <script defer src="/js/addBook.js" />
       <div className="text-left">
         <div className="align-items-center">
           <div className="formAddBook">
@@ -56,11 +55,13 @@ function AddBook({ user, titleName }) {
               <div className="form-row">
                 <input type="submit" className="" value="Добавить!" />
               </div>
+              <span id="errText">Wrong E-mail or Password</span>
             </form>
             <div id="postPreview" />
           </div>
         </div>
       </div>
+      <script defer src="/js/Book.js" />
     </Layout>
   );
 }

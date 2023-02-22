@@ -1,11 +1,6 @@
-// Достаём форму
 const { addForm } = document.forms;
-// console.log(addForm);
 const myProfile = document.querySelector('.MyProfile');
-// console.log(myProfile);
-// Достаёем форму и кнопку
 const { editForm } = document.forms;
-// console.log(editForm);
 
 
 // Добавление
@@ -25,7 +20,6 @@ addForm?.addEventListener('submit', async (event) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        // Что отправляется на бэк:
         img: event.target.img.value,
         title: event.target.title.value,
         author: event.target.author.value,
@@ -34,14 +28,13 @@ addForm?.addEventListener('submit', async (event) => {
     });
     if (response.status !== 200) {
       const data = await response.json();
-      alert(data.error);
-      // return failSignin(event.target, data.err);
-    } alert('Пост успешно опубликован!');
+      const errText = document.getElementById('errText');
+      errText.innerText = data?.err;
+      errText.style.visibility = 'visible';
+    }
   } catch (err) {
     console.error(err);
-    // return failSignin(event.target, err.message);
   }
-  // Редирект на главную
   document.location = ('/private/myprofile');
 });
 

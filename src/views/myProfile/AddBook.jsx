@@ -4,54 +4,58 @@ const Layout = require('../Layout');
 function AddBook({ user, titleName }) {
   return (
     <Layout user={user} title={titleName}>
-      <script defer src="/js/Book.js" />
-      <div className="container text-left">
-        <div className="row align-items-center">
-          <div className="col-md-6">
-            <form id="fetchF" name="addForm" action="/private/addbook/new" method="POST">
-              <div className="mb-3">
-                <label htmlFor="exampleFormControlInput1" className="form-label">img:</label>
-                <input
-                  name="img"
-                  type="url"
-                  className="form-control"
-                  id="exampleFormControlInput1"
-                  placeholder="name@example.com"
-                />
+      <script defer src="/js/addBook.js" />
+      <div className="text-left">
+        <div className="align-items-center">
+          <div className="formAddBook">
+            <form id="fetchF" className="postcard" name="addForm" action="/private/addbook/new" method="POST">
+              <div className="form-row">
+                <label htmlFor="exampleFormControlInput1" className="">
+                  <h3>Image:</h3>
+                  <input
+                    name="img"
+                    type="text"
+                    id="exampleFormControlInput1"
+                    placeholder=""
+                  />
+                </label>
               </div>
-              <div className="mb-3">
-                <label htmlFor="exampleFormControlTextarea1" className="form-label">book title:</label>
-                <input
-                  name="title"
-                  className="form-control"
-                  id="exampleFormControlTextarea1"
-                  rows="3"
-                  placeholder="Enter book name"
-                />
+              <div className="form-row">
+                <label htmlFor="exampleFormControlTextarea1" className="">
+                  <h3>Book title:</h3>
+                  <input
+                    name="title"
+                    className="form-control"
+                    id="exampleFormControlTextarea1"
+                    type="text"
+                  />
+                </label>
               </div>
-              <div className="mb-3">
-                <label htmlFor="exampleFormControlTextarea1" className="form-label">Author:</label>
-                <input
-                  name="author"
-                  className="form-control"
-                  id="exampleFormControlTextarea1"
-                  rows="3"
-                  placeholder="Enter your name/login"
-                />
+              <div className="form-row">
+                <label htmlFor="exampleFormControlTextarea1" className="">
+                  <h3>Author:</h3>
+                  <input
+                    name="author"
+                    className="form-control"
+                    id="exampleFormControlTextarea1"
+                    type="text"
+                  />
+                </label>
               </div>
-              <div className="mb-3">
-                <label htmlFor="exampleFormControlTextarea1" className="form-label">description:</label>
-                <textarea
-                  name="description"
-                  className="form-control"
-                  id="exampleFormControlTextarea1"
-                  rows="3"
-                  placeholder="Enter your description"
-                />
+              <div className="form-row">
+                <label htmlFor="exampleFormControlTextarea1" className="">
+                  <h3>Description:</h3>
+                  <textarea
+                    rows="5"
+                    name="description"
+                    className="form-control"
+                    id="exampleFormControlTextarea1"
+                  />
+                </label>
               </div>
-              <div className="avatar">Отправить:</div>
-              <br />
-              <button type="submit" className="btn btn-primary">Отправить!</button>
+              <div className="form-row">
+                <input type="submit" className="" value="Добавить!" />
+              </div>
             </form>
             <div id="postPreview" />
           </div>

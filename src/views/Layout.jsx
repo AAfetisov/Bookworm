@@ -9,6 +9,7 @@ module.exports = function Layout({ children, user }) {
         <meta charSet="UTF-8" />
         <link rel="stylesheet" href="/css/reset.css" />
         <link rel="stylesheet" href="/css/application.css" />
+        <link rel="stylesheet" href="/css/addbook.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 
         <script
@@ -21,7 +22,7 @@ module.exports = function Layout({ children, user }) {
       <body>
         <Navbar user={user} />
         {/* <div className="container"> */}
-          {children}
+        {children}
         {/* </div> */}
       </body>
     </html>

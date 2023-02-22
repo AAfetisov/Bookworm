@@ -3,12 +3,16 @@ const express = require('express');
 const router = express.Router();
 
 const { addBookPage, addbookForm } = require('../controllers/addBookController');
+const { renderMyProfile } = require('../controllers/myprofileController');
 
 // const { editFarmPage, editFarm } = require('../controllers/editFarmController')
 
 
 // Импортим middleware, котороя будет проверять авторизованного пользователя
 // const isAuth = require('../middlewares/auth');
+
+// myProfile:
+router.get('/myprofile', renderMyProfile);
 
 // addFarmPage:
 router.get('/addbook/new', addBookPage);

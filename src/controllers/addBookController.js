@@ -1,5 +1,5 @@
 const renderTemplate = require('../lib/renderTemplate');
-const AddBook = require('../views/AddBook');
+const AddBook = require('../views/myProfile/AddBook');
 
 // Импорт модели Farm:
 const { Book } = require('../db/models');

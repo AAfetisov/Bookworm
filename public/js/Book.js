@@ -1,6 +1,8 @@
 // Достаём форму
 const { addForm } = document.forms;
-console.log(addForm);
+// console.log(addForm);
+const myProfile = document.querySelector('.MyProfile');
+// console.log(myProfile);
 
 
 // Добавление
@@ -37,5 +39,31 @@ addForm?.addEventListener('submit', async (event) => {
     // return failSignin(event.target, err.message);
   }
   // Редирект на главную
-  document.location = ('/');
+  document.location = ('/private/myprofile');
 });
+
+
+// Delete
+if (myProfile) {
+  myProfile.addEventListener('click', async (event) => {
+    if (event.target.id === 'buttonDeletePost') {
+      try {
+        const postId = event.target.closest('.PostContainer');
+        const obj = { id: postId.id };
+        const response = await fetch('/private/myprofile', {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(obj),
+        });
+        const result = await response.json();
+        if (result.status === 200) {
+          postId.remove();
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  });
+}

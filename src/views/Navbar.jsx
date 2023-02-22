@@ -17,6 +17,11 @@ function Navbar({ user }) {
                 <p className='nav-link px-3'>HELLO, {user.name}!</p>
               </li>
               <li className='control'>
+                <a href='/private/myprofile' className='nav-link px-3'>
+                  My Profile!
+                </a>
+              </li>
+              <li className='control'>
                 <a href='/private/logout' className='nav-link px-3'>
                   LOGOUT
                 </a>

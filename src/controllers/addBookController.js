@@ -28,7 +28,7 @@ const addbookForm = async (req, res) => {
       author,
       description,
     });
-    console.log(`Пост пользователя ${req.session?.user.login} успешно опубликован!`);
+    console.log(`Пост пользователя ${req.session?.user.name} успешно опубликован!`);
     // res.status(200).end();
     res.json({ status: 200 });
   } catch (error) {

@@ -13,6 +13,10 @@ const { addBookPage, addbookForm } = require('../controllers/addBookController')
 // addFarmPage:
 router.get('/addbook/new', addBookPage);
 router.post('/addbook/new', addbookForm);
-
+router.get('/logout', (req, res) => {
+    req.session.destroy();
+    res.clearCookie('bw');
+    res.redirect('/');
+  });
 
 module.exports = router;

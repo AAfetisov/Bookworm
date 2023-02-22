@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/aria-role */
-const React = require("react");
-const Navbar = require("./Navbar");
+const React = require('react');
+const Navbar = require('./Navbar');
 
 module.exports = function Layout({ children, user }) {
   return (
@@ -18,9 +18,9 @@ module.exports = function Layout({ children, user }) {
       </head>
 
       <body>
-        {/* <div className="container"> */}
         <Navbar user={user} />
-        {children}
+        {/* <div className="container"> */}
+          {children}
         {/* </div> */}
       </body>
     </html>

@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 const { addBookPage, addbookForm } = require('../controllers/addBookController');
-const { renderMyProfile } = require('../controllers/myprofileController');
+const { renderMyProfile, MyPostDelete } = require('../controllers/myprofileController');
 
 // const { editFarmPage, editFarm } = require('../controllers/editFarmController')
 
@@ -13,6 +13,7 @@ const { renderMyProfile } = require('../controllers/myprofileController');
 
 // myProfile:
 router.get('/myprofile', renderMyProfile);
+router.delete('/myprofile', MyPostDelete);
 
 // addFarmPage:
 router.get('/addbook/new', addBookPage);

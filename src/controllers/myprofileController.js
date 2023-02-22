@@ -18,21 +18,21 @@ const renderMyProfile = async (req, res) => {
   }
 };
 
-// const MyPublicDelete = async (req, res) => {
-//   const user = req.session?.user;
-//   // console.log('===========>',req.params);
-//   // const { id } = req.params;
-//   const { id } = req.body;
-//   try {
-//     const deletePost = await Post.destroy({
-//       where: { id },
-//     });
-//     console.log('Пост успешно удалён!');
-//     res.json({ status: 200 });
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
+const MyPostDelete = async (req, res) => {
+  const user = req.session?.user;
+  // console.log('===========>',req.body);
+  // const { id } = req.params;
+  const { id } = req.body;
+  try {
+    const deletePost = await Book.destroy({
+      where: { id },
+    });
+    console.log('Пост успешно удалён!');
+    res.json({ status: 200 });
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 
-module.exports = { renderMyProfile };
+module.exports = { renderMyProfile, MyPostDelete };

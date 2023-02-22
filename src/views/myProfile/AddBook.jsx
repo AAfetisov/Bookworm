@@ -4,7 +4,7 @@ const Layout = require('../Layout');
 function AddBook({ user, titleName }) {
   return (
     <Layout user={user} title={titleName}>
-      <script defer src="/js/addBook.js" />
+      <script defer src="/js/Book.js" />
       <div className="container text-left">
         <div className="row align-items-center">
           <div className="col-md-6">

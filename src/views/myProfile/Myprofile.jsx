@@ -6,7 +6,6 @@ function MyProfile({ user, posts }) {
   const proverka = posts.length > 0;
   return (
     <Layout user={user} title={titleName}>
-      <script defer src="/js/Book.js" />
       <div className="MyProfile">
         <h2>My books:</h2>
 
@@ -57,6 +56,7 @@ function MyProfile({ user, posts }) {
           </h5>
         )}
       </div>
+      <script defer src="/js/Book.js" />
     </Layout>
   );
 }

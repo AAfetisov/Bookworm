@@ -47,6 +47,7 @@ addForm?.addEventListener('submit', async (event) => {
 if (myProfile) {
   myProfile.addEventListener('click', async (event) => {
     if (event.target.id === 'buttonDeletePost') {
+      event.preventDefault();
       try {
         const postId = event.target.closest('.PostContainer');
         const obj = { id: postId.id };
@@ -57,8 +58,7 @@ if (myProfile) {
           },
           body: JSON.stringify(obj),
         });
-        const result = await response.json();
-        if (result.status === 200) {
+        if (response.status === 200) {
           postId.remove();
         }
       } catch (error) {

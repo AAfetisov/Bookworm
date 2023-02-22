@@ -28,6 +28,7 @@ const MyPostDelete = async (req, res) => {
 
   if (!isNumeric(id)) { res.status(401).send('404 Page does not exist!'); return; }
   if (!user) { res.status(400).send('Authentication required'); return; }
+
   try {
     const postOwner = await Book.findByPk(id);
     if (postOwner?.userId !== user.id) { res.status(401).json({ err: 'Cant delete posts of other users' }); return; }
@@ -42,40 +43,34 @@ const MyPostDelete = async (req, res) => {
 
 // ! addBook
 
-// Рендерим страницу AddBookForm
 const addBookPage = (req, res) => {
   const user = req.session?.user?.name;
   const titleName = 'Add BookReview';
   renderTemplate(AddBook, { user, titleName }, res);
 };
 
-// Post AddBookForm:
+
 const addbookForm = async (req, res) => {
-  // Что пришло в req.body
-  console.log('req.body addBookForm -->', req.body);
-  // Достаём userId из сессии
-  const { id } = req.session?.user;
-  console.log('userID ==>', id);
+  const { user } = req.session;
+  const {
+    author, title, description, img,
+  } = req.body;
+  if (!user) { res.status(400).send('Authentication required'); return; }
+  if (!author || !title || !description || !img) { res.status(401).json({ err: 'Fields can not be empty' }); return; }
+
   try {
-    // Достаём данные из формы
-    const {
-      author, title, description, img,
-    } = req.body;
-    // Добавляем книгу в таблицу Book:
     const createBook = await Book.create({
-      userId: id,
+      userId: user.id,
       img,
       title,
       author,
       description,
     });
-    console.log(`Пост пользователя ${req.session?.user.name} успешно опубликован!`);
-    // res.status(200).end();
-    res.json({ status: 200 });
+    res.sendStatus(200);
   } catch (error) {
     if (error) {
-      console.log('3) ОШИБКА ПРИ СОЗДАНИИ: =====> Текст ошибки:', error.message);
-      res.json({ error: error.message });
+      console.log(error);
+      res.status(500).json({ err: error });
     }
   }
 };

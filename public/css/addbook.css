@@ -27,33 +27,55 @@
   padding: 20px;
   background: #fffdee;
   border: 10px solid transparent;
-  border-image: 10 repeating-linear-gradient(135deg, #C42061, #C42061 10px, transparent 10px, transparent 20px, #FBCFDF 20px, #FBCFDF 30px, transparent 30px, transparent 40px);
+  border-image: 10
+    repeating-linear-gradient(
+      135deg,
+      #c42061,
+      #c42061 10px,
+      transparent 10px,
+      transparent 20px,
+      #fbcfdf 20px,
+      #fbcfdf 30px,
+      transparent 30px,
+      transparent 40px
+    );
   font-family: 'Playfair Display';
   color: #605756;
 }
-.form-row {
+.form-row,
+.form-row-edit {
   margin-bottom: 15px;
 }
-.form-row input[type="text"], .form-row input[type="email"], .form-row textarea {
+
+.form-row input[type='text'],
+.form-row input[type='email'],
+.form-row textarea,
+.form-row-edit input[type='text'],
+.form-row-edit input[type='email'],
+.form-row-edit textarea {
   width: 100%;
   font-size: 20px;
   padding: 0 10px;
   line-height: 35px;
   border-width: 0;
   outline: none;
-  background: transparent url(https://html5book.ru/wp-content/uploads/2016/12/bg-form.png) bottom left repeat-x;
+  background: transparent
+    url(https://html5book.ru/wp-content/uploads/2016/12/bg-form.png) bottom left
+    repeat-x;
   background-size: 8px 35px;
   font-family: 'Playfair Display';
 }
-.form-row textarea {
+.form-row textarea,
+.form-row-edit textarea {
   background-attachment: local;
   background-repeat: repeat;
   resize: none;
 }
-.form-row input[type="submit"] {
+.form-row input[type='submit'],
+.form-row-edit input[type='submit'] {
   padding: 10px 20px;
   margin-top: 10px;
-  background: #F67CA5;
+  background: #f67ca5;
   border-width: 0;
   cursor: pointer;
   outline: none;
@@ -62,8 +84,10 @@
   letter-spacing: 1px;
   color: #fffdee;
   text-transform: uppercase;
-  transition: 1s cubic-bezier(.165, .84, .44, 1);
+  transition: 1s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
-.form-row input[type=submit]:hover {
-  background: #C42061;
+
+.form-row input[type='submit']:hover,
+.form-row-edit input[type='submit']:hover {
+  background: #c42061;
 }

@@ -9,6 +9,7 @@ const mainPage = async (req, res) => {
   const { user } = req.session;
   try {
     const books = await Book.findAll({ include: [{ model: User, attributes: ['name'] }], raw: true, nested: true });
+
     let favs = [];
     if (user) {
       favs = await Favorite.findAll({ where: { userId: user.id } });
@@ -20,6 +21,7 @@ const mainPage = async (req, res) => {
     } else {
       renderTemplate(MainPage, { user }, res);
     }
+
   } catch (error) {
     console.log(error);
   }

@@ -25,6 +25,7 @@ module.exports = function MainPage({ user, books }) {
                     <span>{book['User.name']}</span>
                   </span>
 
+
                   <span className="container_comments_favs">
                     {book.fav}
                     <a href={`/book/${book.id}`}><img className="comments" src="/img/Comment.png" alt="comment" /></a>
@@ -41,6 +42,7 @@ module.exports = function MainPage({ user, books }) {
                       />
 
                     </a>
+
                   </span>
                 </div>
               </li>

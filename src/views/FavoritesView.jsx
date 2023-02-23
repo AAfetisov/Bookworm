@@ -2,6 +2,7 @@ const React = require('react');
 const Layout = require('./Layout');
 
 module.exports = function BookView({ user, favs }) {
+
   console.log(favs, 'favsINView---->');
   <Layout user={user}>
     {favs ? (
@@ -13,5 +14,6 @@ module.exports = function BookView({ user, favs }) {
           <p>{e.description}</p>
         </div>
       ))) : <p>К сожалению вы ничего не добавили</p>}
+
   </Layout>;
 };

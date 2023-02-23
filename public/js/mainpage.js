@@ -5,7 +5,6 @@ bookList.addEventListener('click', async (e) => {
   e.preventDefault();
   const id = e.target.getAttribute('ids');
 
-  console.log(id);
 
   let response;
   try {

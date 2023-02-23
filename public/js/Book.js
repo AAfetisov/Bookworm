@@ -1,6 +1,6 @@
 const { addForm } = document.forms;
 const myProfile = document.querySelector('.MyProfile');
-const { editForm } = document.forms;
+const { fetchF } = document.forms;
 
 
 // Добавление
@@ -47,6 +47,7 @@ if (myProfile) {
       try {
         const postId = event.target.closest('.PostContainer');
         const obj = { id: postId.id };
+        console.log(postId.id);
         const response = await fetch('/private/myprofile', {
           method: 'DELETE',
           headers: {
@@ -54,6 +55,7 @@ if (myProfile) {
           },
           body: JSON.stringify(obj),
         });
+        console.log(response.status);
         if (response.status === 200) {
           postId.remove();
         }
@@ -63,44 +65,45 @@ if (myProfile) {
     }
     if (event.target.id === 'buttonEditPostForm') {
       const postchange = event.target.closest('.PostContainer');
-      document.location = `private/editform/${postchange.id}`;
+      document.location = `editform/${postchange.id}`;
     }
   });
 }
 
-if (editForm) {
-  editForm.addEventListener('submit', async (event) => {
-    // Останавливаем событие
+if (fetchF) {
+  fetchF.addEventListener('submit', async (event) => {
     event.preventDefault();
     try {
       const postId = event.target.children[0].id;
       // Достаём данные из inputs
       const {
         img, title, description, author,
-      } = editForm;
+      } = fetchF;
       // Заворачиваем в объект
       const myPost = {
         img: img.value,
         title: title.value,
         description: description.value,
         author: author.value,
+        id: postId,
       };
       // Fetch:
       const response = await fetch(
-        `/private/private/editform/${postId}`,
+        '/private/editform',
         {
-          method: 'Put',
+          method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(myPost),
         },
       );
+
+
       if (response.status !== 200) {
         const post = await response.json();
         alert(post.error);
       } else {
-        response.json();
         alert('Данные успешно изменены!');
         document.location = '/private/myprofile';
       }

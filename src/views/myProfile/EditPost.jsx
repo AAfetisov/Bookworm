@@ -8,7 +8,7 @@ function EditPostForm({ user, titleName, post }) {
       <div className="text-left">
         <div className="align-items-center">
           <div className="formEditBook">
-            <form id="fetchF" className="postcard" action={`private/editform/${post.id}`} method="POST">
+            <form id="fetchF" className="postcard" action="" method="">
               <div name="editReviewForm" id={post.id} />
               <div className="form-row-edit">
                 <label htmlFor="exampleFormControlInput1" className="form-label">img:</label>
@@ -58,9 +58,9 @@ function EditPostForm({ user, titleName, post }) {
               </div>
               <br />
               <div className="form-row-edit">
-              <input type="submit" className="" value="Изменить!" />
+                <input type="submit" className="" value="Изменить!" />
               </div>
-             
+
             </form>
             <div id="postPreview" />
           </div>

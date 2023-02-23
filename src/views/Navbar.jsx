@@ -5,7 +5,9 @@ function Navbar({ user }) {
     <nav className="navbar navbar-ligth fixed-top pt-0 bg-white main">
       <div className="container">
         <div>
-          <img className="logoBW" src="/img/logoBW.png" alt="log" width={60} />
+          <a href="/">
+            <img className="logoBW" src="/img/logoBW.png" alt="log" width={60} />
+          </a>
         </div>
         <div>
           <p className="bookname">BOOKWORM</p>
@@ -15,18 +17,24 @@ function Navbar({ user }) {
             <>
               <li className="control">
                 <a href="/private/addbook/new" className="nav-link px-3">
-                  Add book
+                  Add a book
+                </a>
+
+              </li>
+              <li className="control">
+                <a href="/favorites" className="nav-link px-3">
+                  Favs
                 </a>
 
               </li>
               <li className="control">
                 <a href="/private/myprofile" className="nav-link px-3">
-                  My Profile!
+                  My Profile
                 </a>
               </li>
               <li className="control">
                 <a href="/auth/signout" className="nav-link px-3">
-                  LOGOUT
+                  Logout
                 </a>
               </li>
             </>

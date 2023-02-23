@@ -35,6 +35,11 @@ module.exports = function BookView({ user, book, comments }) {
             </li>
           ))}
         </ul>
+
+      //   <form id="commentForm" action="/comment/add" method="post">
+      //   <input className="login-input" type="text" name="text" id="text" />
+      //   <button id="sendBtn" type="submit">Send</button>
+      // </form>
         )}
     </Layout>
   );

@@ -970,3 +970,13 @@ img {
   align-items: center;
   gap: 1rem;
 }
+.comments2{
+  background-color: rgb(140, 140, 140);
+}
+.comment2{
+  width: 400px;
+}
+textarea{
+  resize:none;
+  display:block;
+}

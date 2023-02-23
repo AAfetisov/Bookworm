@@ -380,6 +380,19 @@ body {
   padding-right: 50px;
 }
 
+.login-input {
+  width: 100%;
+  display: block;
+  outline: none;
+  padding: 1em;
+  margin-bottom: 2em;
+  flex: 1 0 auto;
+  border: 1px solid black;
+  border-radius: 6px;
+  text-indent: 10px;
+  font: 20px Arial, sans-serif;
+}
+
 .email-input {
   margin-bottom: 10px;
   /* padding: 50px; */
@@ -460,7 +473,6 @@ img {
   align-items: center;
 }
 
-
 .comment2 p {
   margin-right: 5px;
   font: 20px Arial, sans-serif;
@@ -474,7 +486,7 @@ img {
   align-items: center;
 }
 
-.commentBody{
+.commentBody {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -499,6 +511,8 @@ img {
 textarea {
   resize: none;
   display: block;
+  text-indent: 10px;
+  padding: 10px;
 }
 
 .sendBtn {

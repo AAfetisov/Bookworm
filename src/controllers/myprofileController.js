@@ -3,7 +3,13 @@ const renderTemplate = require('../lib/renderTemplate');
 const MyProfile = require('../views/myProfile/Myprofile');
 const AddBook = require('../views/myProfile/AddBook');
 const EditPostForm = require('../views/myProfile/EditPost');
+<<<<<<< HEAD
 const FavoriteView = require('../views/FavoritesView');
+=======
+
+const BookView = require('../views/FavoritesView');
+>>>>>>> main
+
 
 // Импортим модель из БД
 const { sequelize, Book, Favorite } = require('../db/models');
@@ -137,10 +143,12 @@ const addFav = async (req, res) => {
   if (!user) { return; }
 
   try {
+
     const [favs, created] = await Favorite.findOrCreate({
       where: { userId: user.id, bookId: id },
       defaults: { bookId: id, userId: user.id },
     });
+
     if (!created) {
       favs.destroy();
       await favs.save();
@@ -155,7 +163,13 @@ const addFav = async (req, res) => {
 
 const renderFavs = async (req, res) => {
   const { user } = req.session;
+<<<<<<< HEAD
   // console.log(user, 'user====>');
+=======
+Template(FavoritesView, { user, favs }, res);
+
+  console.log(user, 'user====>');
+>>>>>>> main
   if (!user) { return; }
 
   try {
@@ -168,7 +182,12 @@ const renderFavs = async (req, res) => {
     });
     // console.log('favs=====>', favs);
     if (favs.length === 0) { favs = undefined; }
+<<<<<<< HEAD
     renderTemplate(FavoriteView, { user, favs }, res);
+=======
+    renderTemplate(BookView, { user, favs }, res);
+
+>>>>>>> main
   } catch (error) {
     console.log(error);
   }

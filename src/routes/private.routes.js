@@ -9,6 +9,8 @@ const {
   addbookForm,
   putformPage,
   postEditform,
+  renderFavs,
+  addFav,
 } = require('../controllers/myprofileController');
 
 
@@ -28,5 +30,8 @@ router.put('/private/editform/:id', postEditform);
 // addFarmPage:
 router.get('/addbook/new', addBookPage);
 router.post('/addbook/new', addbookForm);
+
+router.get('/favorites', renderFavs);
+router.post('/favorites', addFav);
 
 module.exports = router;

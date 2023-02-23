@@ -34,6 +34,7 @@ module.exports = function BookView({ user, book, comments }) {
             </div>
           ))}
         </div>
+
       )}
       {book && (
         <form
@@ -59,6 +60,7 @@ module.exports = function BookView({ user, book, comments }) {
       )}
 
       <script src='/js/bookview.js' defer />
+
     </Layout>
   );
 };

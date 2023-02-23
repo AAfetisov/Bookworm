@@ -2,10 +2,10 @@ const React = require('react');
 const Layout = require('./Layout');
 
 module.exports = function MainPage({ user, books }) {
-  console.log(user, '+++++++++++++++++++++++++++++++');
+  // console.log(books.map((book) => (book['Favorites.userId'] === user.id ? { ...book, liked: true } : { ...book, liked: false })));
   return (
     <Layout user={user}>
-      <div className='contflex'>
+      <div className="contflex">
         {books && (
           <ul className='book-list'>
             {books.map((book) => (
@@ -23,21 +23,9 @@ module.exports = function MainPage({ user, books }) {
                     <span>By:</span>
                     <span>{book['User.name']}</span>
                   </span>
-                  <span className='container_comments_favs'>
-                    <a href={`/book/${book.id}`}>
-                      <img
-                        className='comments'
-                        src='/img/Comment.png'
-                        alt='comment'
-                      />
-                    </a>
-                    <a href='/'>
-                      <img
-                        className='bookmark'
-                        src='/img/Bookmark_black.png'
-                        alt='bookmark'
-                      />
-                    </a>
+                  <span className="container_comments_favs">
+                    <a href={`/book/${book.id}`}><img className="comments" src="/img/Comment.png" alt="comment" /></a>
+                    <a href="/"><img className="bookmark" src="/img/Bookmark_black.png" alt="bookmark" /></a>
                   </span>
                 </div>
               </li>
@@ -45,6 +33,7 @@ module.exports = function MainPage({ user, books }) {
           </ul>
         )}
       </div>
+      <script src="/js/mainpage.js" defer />
     </Layout>
   );
 };

@@ -22,7 +22,7 @@ function Navbar({ user }) {
 
               </li>
               <li className="control">
-                <a href="/favorites" className="nav-link px-3">
+                <a href="/private/favorites" className="nav-link px-3">
                   Favs
                 </a>
 

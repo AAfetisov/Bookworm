@@ -10,11 +10,16 @@ function FavoriteView({ user, favs }) {
       && (
         <ul className="book-list">
           {favs.map((e) => (
-            <div key={e.id}>
+            <div className="container_book" key={e.id}>
+              <div className="left-container">
               <img className="img-entries" src={e.img} alt={e.title} />
-              <p>{e.title}</p>
-              <p>{e.author}</p>
+              </div>
+              <div className="rigth-container">
+              <h2>{e.title}</h2>
+              <h3>{e.author}</h3>
               <p>{e.description}</p>
+              </div>
+              
             </div>
           ))}
         </ul>

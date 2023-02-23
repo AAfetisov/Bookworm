@@ -29,7 +29,6 @@ router.get('/:id', async (req, res) => {
 
 router.post('/comment', async (req, res) => {
   const { id, comment } = req.body;
-  console.log(111111, id, comment);
 
   const { user } = req.session;
   if (!user) { res.status(401).json({ err: 'Must be authorized' }); return; }

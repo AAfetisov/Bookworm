@@ -2,11 +2,9 @@ const { commentForm } = document.forms;
 
 commentForm?.addEventListener('submit', async (e) => {
   e.preventDefault();
-  console.log(1111111111);
   const { method, action } = e.target;
   const id = e.target.getAttribute('ids');
   let response;
-  console.log(id, e.target.comment.value);
   try {
     response = await fetch(action, {
       method,

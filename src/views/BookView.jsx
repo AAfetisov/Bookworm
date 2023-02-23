@@ -23,24 +23,31 @@ module.exports = function BookView({ user, book, comments }) {
             </p>
           </div>
         )
-        : <div>This book does not exist :(</div>}
+        : <div>This book does not exist</div>}
+
 
       {book && comments
         && (
-        <ul className="comments">
-          {comments.map((c) => (
-            <li className="comment" key={c.id}>
-              <div className="commentAuthor">{c.userId}</div>
-              <div className="commentBody">{c.body}</div>
-            </li>
-          ))}
-        </ul>
+        <div className="comments2">
 
-      //   <form id="commentForm" action="/comment/add" method="post">
-      //   <input className="login-input" type="text" name="text" id="text" />
-      //   <button id="sendBtn" type="submit">Send</button>
-      // </form>
+          {comments.map((c) => (
+            <div className="comment2" key={c.id}>
+              <div className="commentAuthor">{c['User.name']}</div>
+              <div className="commentBody">{c.body}</div>
+            </div>
+          ))}
+
+        </div>
         )}
+      {book
+     && (
+     <form id="commentForm" action="/comment/add" method="post">
+       <textarea id="comment" name="comment" rows="5" cols="100" />
+       <button id="sendBtn" type="submit">Send</button>
+     </form>
+     )}
+
+      <script src="/js/bookview.js" defer />
     </Layout>
   );
 };

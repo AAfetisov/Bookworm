@@ -23,7 +23,7 @@ module.exports = function MainPage({ user, books }) {
                 <div className="container__commentsFavorites">
                   <span className="container__user">
                     <span>By:</span>
-                    <span>{user.name}</span>
+                    <span>{book['User.name']}</span>
                   </span>
                   <span className="container_comments_favs">
                     <a href="/"><img className="comments" src="/img/Comment.png" alt="comment" /></a>

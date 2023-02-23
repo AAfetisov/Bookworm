@@ -18,7 +18,7 @@ router.get('/:id', async (req, res) => {
     let comments = await Comment.findAll({
       where: { bookId: id }, order: [['id', 'ASC']], include: [{ model: User, attributes: ['name'] }], raw: true, nested: true,
     });
-    console.log(comments);
+    console.log(book);
     if (comments.length === 0) { comments = undefined; }
     render(BookView, { user, book, comments }, res);
   } catch (error) {

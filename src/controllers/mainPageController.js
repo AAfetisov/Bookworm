@@ -15,7 +15,6 @@ const mainPage = async (req, res) => {
     }
     if (favs.length !== 0) {
       const arrFavs = favs.map((f) => f.bookId);
-
       const arrBooks = books.map((book) => (arrFavs.includes(book.id) ? { ...book, liked: true } : { ...book, liked: false }));
       renderTemplate(MainPage, { user, books: arrBooks }, res);
     } else {

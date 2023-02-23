@@ -390,6 +390,7 @@ body {
   border: 1px solid black;
   border-radius: 6px;
   text-indent: 10px;
+  font: 20px Arial, sans-serif;
 }
 
 .email-input {
@@ -510,6 +511,8 @@ img {
 textarea {
   resize: none;
   display: block;
+  text-indent: 10px;
+  padding: 10px;
 }
 
 .sendBtn {

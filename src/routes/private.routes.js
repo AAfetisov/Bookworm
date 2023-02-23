@@ -7,7 +7,7 @@ const {
   MyPostDelete,
   addBookPage,
   addbookForm,
-  putformPage,
+  renderformPage,
   postEditform,
   renderFavs,
   addFav,
@@ -23,8 +23,8 @@ router.delete('/myprofile', MyPostDelete);
 
 
 // private/editform/:id
-router.get('/private/editform/:id', putformPage);
-router.put('/private/editform/:id', postEditform);
+router.get('/editform/:id', renderformPage);
+router.put('/editform', postEditform);
 
 
 // addFarmPage:

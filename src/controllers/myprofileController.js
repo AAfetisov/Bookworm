@@ -4,9 +4,7 @@ const MyProfile = require('../views/myProfile/Myprofile');
 const AddBook = require('../views/myProfile/AddBook');
 const EditPostForm = require('../views/myProfile/EditPost');
 
-const FavoriteView = require('../views/FavoritesView');
-
-
+const FavoritesView = require('../views/FavoritesView');
 
 // Импортим модель из БД
 const { sequelize, Book, Favorite } = require('../db/models');
@@ -140,7 +138,6 @@ const addFav = async (req, res) => {
   if (!user) { return; }
 
   try {
-
     const [favs, created] = await Favorite.findOrCreate({
       where: { userId: user.id, bookId: id },
       defaults: { bookId: id, userId: user.id },
@@ -161,7 +158,7 @@ const addFav = async (req, res) => {
 const renderFavs = async (req, res) => {
   const { user } = req.session;
 
-  // console.log(user, 'user====>');
+
 
   if (!user) { return; }
 
@@ -176,8 +173,8 @@ const renderFavs = async (req, res) => {
     // console.log('favs=====>', favs);
     if (favs.length === 0) { favs = undefined; }
 
-    renderTemplate(FavoriteView, { user, favs }, res);
 
+    renderTemplate(FavoritesView, { user, favs }, res);
   } catch (error) {
     console.log(error);
   }

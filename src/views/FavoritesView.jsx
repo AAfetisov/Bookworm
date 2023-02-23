@@ -2,6 +2,7 @@ const React = require('react');
 const Layout = require('./Layout');
 
 
+
 function FavoriteView({ user, favs }) {
   // console.log(favs, 'favsINView---->');
   return (
@@ -29,4 +30,5 @@ function FavoriteView({ user, favs }) {
 }
 
 module.exports = FavoriteView;
+
 

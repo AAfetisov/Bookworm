@@ -3,7 +3,7 @@ const Layout = require('./Layout');
 
 
 function FavoriteView({ user, favs }) {
-  console.log(favs, 'favsINView---->');
+  // console.log(favs, 'favsINView---->');
   return (
     <Layout user={user}>
       {favs

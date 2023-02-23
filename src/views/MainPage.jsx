@@ -12,9 +12,7 @@ module.exports = function MainPage({ user, books }) {
             {books.map((book) => (
               <li className="book-item" key={book.id}>
                 <img className="img-entries" src={book.img} />
-                <h1 className="text-title">
-                  {book.title.toUpperCase().slice(0, 17)}
-                </h1>
+                <h1 className="text-title">{book.title.toUpperCase().slice(0, 17)}</h1>
                 <p className="text-info">
                   {book.description.slice(0, 120)}
                   ...
@@ -24,8 +22,6 @@ module.exports = function MainPage({ user, books }) {
                     <span>By:</span>
                     <span>{book['User.name']}</span>
                   </span>
-
-
                   <span className="container_comments_favs">
                     {book.fav}
                     <a href={`/book/${book.id}`}><img className="comments" src="/img/Comment.png" alt="comment" /></a>
@@ -40,9 +36,7 @@ module.exports = function MainPage({ user, books }) {
                       }
                         alt="bookmark"
                       />
-
                     </a>
-
                   </span>
                 </div>
               </li>

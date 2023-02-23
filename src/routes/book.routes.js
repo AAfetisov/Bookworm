@@ -27,4 +27,22 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+router.post('/comment', async (req, res) => {
+  const { id, comment } = req.body;
+  console.log(111111, id, comment);
+
+  const { user } = req.session;
+  if (!user) { res.status(401).json({ err: 'Must be authorized' }); return; }
+  if (!isNumeric(id)) { res.status(401).json('Provide valid bookId'); return; }
+
+  try {
+    const post = Comment.create({ bookId: id, userId: user.id, body: comment });
+    res.sendStatus(200);
+    return;
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Something wrong with db');
+  }
+});
+
 module.exports = router;

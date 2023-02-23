@@ -41,7 +41,7 @@ module.exports = function BookView({ user, book, comments }) {
         )}
       {book
      && (
-     <form id="commentForm" action="/comment/add" method="post">
+     <form ids={book.id} id="commentForm" action="/book/comment" method="post">
        <textarea id="comment" name="comment" rows="5" cols="100" />
        <button id="sendBtn" type="submit">Send</button>
      </form>

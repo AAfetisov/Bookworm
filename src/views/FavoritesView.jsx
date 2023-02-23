@@ -1,7 +1,7 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-function FavoriteView({ user, favs }) {
+function FavoritesView({ user, favs }) {
   // console.log(favs, 'favsINView---->');
   return (
     <Layout user={user}>
@@ -19,7 +19,7 @@ function FavoriteView({ user, favs }) {
         </ul>
       )}
     </Layout>
-  )
+  );
 }
 
-module.exports = FavoriteView;
+module.exports = FavoritesView;

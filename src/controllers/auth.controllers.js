@@ -8,6 +8,7 @@ function renderSignInForm(req, res) {
   const { user } = req.session;
   render(SignInForm, user, res);
 }
+
 function renderSignUpForm(req, res) {
   const { user } = req.session;
   render(SignUpForm, user, res);

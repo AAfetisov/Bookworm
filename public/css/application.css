@@ -453,7 +453,7 @@ img {
   margin: 20px;
   font: 16px Arial, sans-serif;
   height: 4rem;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .commentsBox {

@@ -3,6 +3,7 @@ const renderTemplate = require('../lib/renderTemplate');
 const MyProfile = require('../views/myProfile/Myprofile');
 const AddBook = require('../views/myProfile/AddBook');
 const EditPostForm = require('../views/myProfile/EditPost');
+
 const FavoritesView = require('../views/FavoritesView');
 
 // Импортим модель из БД
@@ -158,6 +159,7 @@ const renderFavs = async (req, res) => {
   const { user } = req.session;
 
 
+
   if (!user) { return; }
 
   try {
@@ -170,6 +172,7 @@ const renderFavs = async (req, res) => {
     });
     // console.log('favs=====>', favs);
     if (favs.length === 0) { favs = undefined; }
+
 
     renderTemplate(FavoritesView, { user, favs }, res);
   } catch (error) {

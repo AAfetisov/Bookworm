@@ -1,10 +1,12 @@
+const { render } = require('react-dom');
 const renderTemplate = require('../lib/renderTemplate');
 const MyProfile = require('../views/myProfile/Myprofile');
 const AddBook = require('../views/myProfile/AddBook');
 const EditPostForm = require('../views/myProfile/EditPost');
+const FavoritesView = require('../views/FavoritesView');
 
 // Импортим модель из БД
-const { Book } = require('../db/models');
+const { sequelize, Book, Favorite } = require('../db/models');
 const isNumeric = require('../lib/utils');
 
 const renderMyProfile = async (req, res) => {
@@ -119,6 +121,36 @@ const postEditform = async (req, res) => {
   }
 };
 
+const addFav = async (req, res) => {
+  const { id } = req.body;
+  const { user } = req.session;
+  if (!user) { return; }
+
+  try {
+    const [favs, created] = await Favorite.findOrCreate({ where: { userId: user.id, bookId: id }, defaults: { bookId: id, userId: user.id } });
+    if (!created) {
+      favs.destroy();
+      await favs.save();
+      res.status(200).json('unfaved');
+      return;
+    }
+    res.status(200).json('faved');
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const renderFavs = (req, res) => {
+  const { user } = req.session;
+  if (!user) { return; }
+  try {
+    let favs = Favorite.findAll({ where: { userId: user.id } });
+    if (favs.length === 0) { favs = undefined; }
+  } catch (error) {
+    console.log(error);
+  }
+  render(FavoritesView, { user, favs }, res);
+};
 
 module.exports = {
   renderMyProfile,
@@ -127,4 +159,6 @@ module.exports = {
   addbookForm,
   putformPage,
   postEditform,
+  renderFavs,
+  addFav,
 };

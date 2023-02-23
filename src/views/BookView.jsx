@@ -46,7 +46,6 @@ module.exports = function BookView({ user, book, comments }) {
        <button id="sendBtn" type="submit">Send</button>
      </form>
      )}
-
       <script src="/js/bookview.js" defer />
     </Layout>
   );

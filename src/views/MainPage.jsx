@@ -12,7 +12,9 @@ module.exports = function MainPage({ user, books }) {
             {books.map((book) => (
               <li className="book-item" key={book.id}>
                 <img className="img-entries" src={book.img} />
-                <h1 className="text-title">{book.title.toUpperCase()}</h1>
+                <h1 className="text-title">
+                  {book.title.toUpperCase().slice(0, 17)}
+                </h1>
                 <p className="text-info">
                   {book.description.slice(0, 120)}
                   ...

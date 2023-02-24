@@ -48,7 +48,7 @@ module.exports = function BookView({
               </rating>
             </div>
             <p>
-              Description:
+
               {' '}
               {book.description}
             </p>

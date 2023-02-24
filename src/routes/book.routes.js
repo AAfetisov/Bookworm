@@ -1,7 +1,9 @@
 const express = require('express');
 const render = require('../lib/renderTemplate');
 const BookView = require('../views/BookView');
-const { Book, Comment, User } = require('../db/models');
+const {
+  Book, Comment, User, Rating, sequelize,
+} = require('../db/models');
 const isNumeric = require('../lib/utils');
 
 const router = express.Router();
@@ -15,12 +17,35 @@ router.get('/:id', async (req, res) => {
 
   try {
     const book = await Book.findByPk(id);
-    let comments = await Comment.findAll({
-      where: { bookId: id }, order: [['id', 'ASC']], include: [{ model: User, attributes: ['name'] }], raw: true, nested: true,
+
+    let urating = 0;
+    if (user) {
+      urating = await Rating.findOne({ where: { userId: user.id, bookId: id } });
+    }
+
+    const arating = await Rating.findAll({
+      attributes: ['bookId',
+        [sequelize.fn('AVG', sequelize.col('rating')), 'averageRating'],
+      ],
+      where: { bookId: id },
+      group: ['bookId'],
+      raw: true,
+      nested: true,
     });
 
+    let comments = await Comment.findAll({
+      where: { bookId: id },
+      order: [['id', 'ASC']],
+      include: [
+        { model: User, attributes: ['name'] },
+      ],
+      raw: true,
+      nested: true,
+    });
     if (comments.length === 0) { comments = undefined; }
-    render(BookView, { user, book, comments }, res);
+    render(BookView, {
+      user, book, comments, urating: urating?.rating, arating: arating?.at(0)?.averageRating,
+    }, res);
   } catch (error) {
     console.error(error);
     res.status(500).send('Something wrong with db');

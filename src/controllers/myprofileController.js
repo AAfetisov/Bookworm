@@ -7,7 +7,9 @@ const EditPostForm = require('../views/myProfile/EditPost');
 const FavoritesView = require('../views/FavoritesView');
 
 // Импортим модель из БД
-const { sequelize, Book, Favorite } = require('../db/models');
+const {
+  sequelize, Book, Favorite, Rating,
+} = require('../db/models');
 const isNumeric = require('../lib/utils');
 
 const renderMyProfile = async (req, res) => {
@@ -15,11 +17,21 @@ const renderMyProfile = async (req, res) => {
   if (!user) { res.status(400).send('Authentication required'); return; }
   try {
     const posts = await Book.findAll({
-
       order: [['updatedAt', 'DESC']],
       where: { userId: user.id },
     });
-    renderTemplate(MyProfile, { user, posts }, res);
+    const arating = [];
+    // const arating = await Rating.findAll({
+    //   attributes: ['bookId',
+    //     [sequelize.fn('AVG', sequelize.col('rating')), 'averageRating'],
+    //   ],
+    //   where: { bookId: id },
+    //   group: ['bookId'],
+    //   raw: true,
+    //   nested: true,
+    // });
+
+    renderTemplate(MyProfile, { user, posts, arating: arating?.at(0)?.averageRating }, res);
   } catch (error) {
     console.error(error);
   }
@@ -28,7 +40,6 @@ const renderMyProfile = async (req, res) => {
 const MyPostDelete = async (req, res) => {
   const { user } = req.session;
   const { id } = req.body;
-  console.log(111, id);
   if (!user) { res.status(400).send('Authentication required'); return; }
 
   try {
@@ -157,11 +168,7 @@ const addFav = async (req, res) => {
 
 const renderFavs = async (req, res) => {
   const { user } = req.session;
-
-
-
-  if (!user) { return; }
-
+  if (!user) { res.status(401).redirect('/auth/signin'); return; }
   try {
     let favs = await Book.findAll({
       raw: true,
@@ -170,13 +177,29 @@ const renderFavs = async (req, res) => {
         where: { userId: user.id },
       },
     });
-    // console.log('favs=====>', favs);
     if (favs.length === 0) { favs = undefined; }
-
-
     renderTemplate(FavoritesView, { user, favs }, res);
   } catch (error) {
     console.log(error);
+  }
+};
+
+const rateBook = async (req, res) => {
+  const { user } = req.session;
+  const { id, value } = req.body;
+  if (!user) { res.status(401).json({ err: 'User authentication required' }); return; }
+  try {
+    const exist = await Rating.findOne({ where: { userId: user.id, bookId: id } });
+    if (exist) {
+      exist.rating = value;
+      await exist.save();
+      res.json({ response: 'ok' });
+    } else {
+      await Rating.create({ userId: user.id, bookId: id, rating: value });
+      res.json({ response: 'ok' });
+    }
+  } catch (err) {
+    console.log(err);
   }
 };
 
@@ -189,4 +212,5 @@ module.exports = {
   postEditform,
   renderFavs,
   addFav,
+  rateBook,
 };

@@ -11,8 +11,13 @@ module.exports = function MainPage({ user, books }) {
           <ul className="book-list">
             {books.map((book) => (
               <li className="book-item" key={book.id}>
-                <img className="img-entries" src={book.img} />
+                <a href={`/book/${book.id}`}><img className="img-entries" src={book.img} /></a>
                 <h1 className="text-title">{book.title.toUpperCase().slice(0, 17)}</h1>
+                <div className="rating">
+                  <div className="star" />
+                  <div className="star" />
+                  <div className="star" />
+                </div>
                 <p className="text-info">
                   {book.description.slice(0, 120)}
                   ...

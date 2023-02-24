@@ -9,8 +9,8 @@ const mainPage = async (req, res) => {
   const { user } = req.session;
   try {
     const books = await Book.findAll({ include: [{ model: User, attributes: ['name'] }], raw: true, nested: true });
-
     let favs = [];
+
     if (user) {
       favs = await Favorite.findAll({ where: { userId: user.id } });
     }
@@ -19,9 +19,8 @@ const mainPage = async (req, res) => {
       const arrBooks = books.map((book) => (arrFavs.includes(book.id) ? { ...book, liked: true } : { ...book, liked: false }));
       renderTemplate(MainPage, { user, books: arrBooks }, res);
     } else {
-      renderTemplate(MainPage, { user }, res);
+      renderTemplate(MainPage, { user, books }, res);
     }
-
   } catch (error) {
     console.log(error);
   }

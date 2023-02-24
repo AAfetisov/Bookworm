@@ -370,11 +370,7 @@ rating > span {
   transition: 0.2s ease;
   color: orange;
 }
-/* give label a hover state */
-.astar-rating label:hover {
-  color: #ff69b4;
-  transition: 0.2s ease;
-}
+
 .astar-rating label:active::before {
   transform: scale(1.1);
 }
@@ -396,6 +392,12 @@ rating > span {
     font-size: 36px;
     line-height: 21px;
   }
+}
+
+.simpleRating {
+  color: orange;
+  user-select: none;
+  font-size: 2rem;
 }
 
 .index-title {

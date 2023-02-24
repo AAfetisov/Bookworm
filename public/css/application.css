@@ -203,6 +203,11 @@ body {
   border-radius: 5px;
   box-shadow: 0 15px 20px rgba(0, 0, 0, 0.356);
 }
+.favAbs {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
 
 .textProfile {
   display: flex;

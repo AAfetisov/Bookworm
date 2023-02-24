@@ -172,11 +172,13 @@ const renderFavs = async (req, res) => {
   try {
     let favs = await Book.findAll({
       raw: true,
+      nested: true,
       include: {
         model: Favorite,
         where: { userId: user.id },
       },
     });
+    console.log(favs);
     if (favs.length === 0) { favs = undefined; }
     renderTemplate(FavoritesView, { user, favs }, res);
   } catch (error) {

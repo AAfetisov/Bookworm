@@ -38,5 +38,4 @@ for (let i = 0; i < averageRatingsAll.length; i++) {
   const starsElem = document.createElement('p');
   starsElem.innerText = rating;
   averageRatingsAll[i].appendChild(starsElem);
-
 }

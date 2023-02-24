@@ -501,7 +501,15 @@ img {
 }
 
 /* BOOK VIEW */
-
+#comment {
+  max-width: 600px;
+  min-width: 400px;
+  width: 80%;
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  border: none;
+  outline: 2px solid grey;
+}
 .commentsBox {
   margin: 50px;
   /* background-color: rgba(0, 0, 0, 0.356); */
@@ -596,7 +604,6 @@ textarea {
     border-radius: 5px;
     box-shadow: 0 15px 20px rgba(0, 0, 0, 0.356);
   }
-  
 
   .text-info {
     font: 16px Arial, sans-serif;
@@ -604,6 +611,4 @@ textarea {
     margin-left: 10px;
     text-align: justify;
   }
-
-
 }

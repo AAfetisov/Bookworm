@@ -29,6 +29,7 @@ const averageRatingsAll = document.getElementsByClassName('simpleRating');
 for (let i = 0; i < averageRatingsAll.length; i++) {
   let arating = averageRatingsAll[i].getAttribute('arating');
   const id = averageRatingsAll[i].getAttribute('ids');
+
   arating = arating || 0;
 
   arating = Math.round(arating);
@@ -37,4 +38,5 @@ for (let i = 0; i < averageRatingsAll.length; i++) {
   const starsElem = document.createElement('p');
   starsElem.innerText = rating;
   averageRatingsAll[i].appendChild(starsElem);
+
 }

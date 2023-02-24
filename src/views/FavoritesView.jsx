@@ -1,34 +1,35 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-
-
 function FavoriteView({ user, favs }) {
   // console.log(favs, 'favsINView---->');
   return (
     <Layout user={user}>
-      {favs
-      && (
-        <ul className="book-list">
-          {favs.map((e) => (
-            <div className="container_book" key={e.id}>
-              <div className="left-container">
-              <img className="img-entries" src={e.img} alt={e.title} />
+      <div className="MyProfile">
+        
+      {favs && (
+          favs.map((e) => (
+            <div className='container_book' key={e.id}>
+              <div className='left-container'>
+                <img className='imgPost' src={e.img} alt={e.title} />
               </div>
-              <div className="rigth-container">
-              <h2>{e.title}</h2>
-              <h3>{e.author}</h3>
-              <p>{e.description}</p>
+              <div className='rigth-container'>
+                <div className='bookTitle'>
+                  <h2>{e.title}</h2>
+                </div>
+                <div className='author'>
+                  <p>{e.author}</p>
+                </div>
+                <div className='text-info'>
+                  <p>{e.description}</p>
+                </div>
               </div>
-              
             </div>
-          ))}
-        </ul>
-      )}
+          )))}
+      </div>
+      
     </Layout>
-  )
+  );
 }
 
 module.exports = FavoriteView;
-
-

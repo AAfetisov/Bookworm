@@ -32,6 +32,7 @@ body {
 #errText {
   margin-top: 20px;
   visibility: hidden;
+  align-self: center;
 }
 
 .banner {
@@ -43,18 +44,24 @@ body {
   overflow: auto;
 }
 
-.authSubmitBtn,
 .authSubmitBtn {
-  display: flex;
-  align-items: center;
+  align-self: center;
   background-color: rgb(8, 231, 90);
-  color: black;
-  padding: 22px 45px;
-  font-size: 1rem;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
   border-radius: 5px;
   text-decoration: none;
   box-shadow: 0 15px 20px rgba(0, 0, 0, 0.356);
+  min-width: 200px;
+  max-width: 210px;
+}
+
+.container_login {
+  display: flex;
+  justify-content: center;
 }
 
 .imgBox {
@@ -459,6 +466,9 @@ rating > span {
   margin-bottom: 30px;
   padding-left: 50px;
   padding-right: 50px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
 }
 
 .login-input {

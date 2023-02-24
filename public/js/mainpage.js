@@ -29,12 +29,14 @@ const averageRatingsAll = document.getElementsByClassName('simpleRating');
 for (let i = 0; i < averageRatingsAll.length; i++) {
   let arating = averageRatingsAll[i].getAttribute('arating');
   const id = averageRatingsAll[i].getAttribute('ids');
-  if (arating) {
-    arating = Math.round(arating);
-    const rating = '\u2605'.repeat(arating) + '\u2606'.repeat(5 - arating);
 
-    const starsElem = document.createElement('p');
-    starsElem.innerText = rating;
-    averageRatingsAll[i].appendChild(starsElem);
-  }
+  arating = arating || 0;
+
+  arating = Math.round(arating);
+  const rating = '\u2605'.repeat(arating) + '\u2606'.repeat(5 - arating);
+
+  const starsElem = document.createElement('p');
+  starsElem.innerText = rating;
+  averageRatingsAll[i].appendChild(starsElem);
+
 }

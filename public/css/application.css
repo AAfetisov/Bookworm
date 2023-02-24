@@ -125,6 +125,8 @@ body {
 .text-info {
   font: 16px Arial, sans-serif;
   height: 4rem;
+  margin-left: 10px;
+  text-align: justify;
 }
 
 .container__text {
@@ -181,7 +183,8 @@ body {
   text-decoration: underline;
 }
 
-.PostContainer {
+.PostContainer,
+.container_book {
   position: relative;
   display: flex;
   justify-content: center;
@@ -201,16 +204,19 @@ body {
   background-color: rgb(8, 231, 90);
 }
 
-.leftBox {
+.leftBox,
+.left-container {
   width: 30%;
 }
 
-.imgPost {
+.imgPost,
+.img-entries {
   width: 500px;
   height: 500px;
 }
 
-.rigthBox {
+.rigthBox,
+.rigth-container {
   width: 60%;
   height: 350px;
   display: flex;
@@ -220,6 +226,7 @@ body {
 }
 
 .bookTitle {
+  margin-bottom: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -229,6 +236,8 @@ body {
   color: black;
   font-size: 18px;
   text-align: justify;
+  margin-left: 10px;
+  margin-bottom: 20px;
 }
 
 .buttonEditPostForm {
@@ -482,51 +491,6 @@ img {
 }
 
 /* BOOK VIEW */
-.container_book {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-  margin: 50px;
-  border-radius: 5px;
-  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.356);
-}
-
-.rigth-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.rigth-container h2 {
-  margin-top: 5px;
-  font: 28px 'Gloock', Helvetica, Arial, sans-serif;
-  color: black;
-  font-weight: 400;
-}
-
-.rigth-container h3 {
-  color: black;
-  font-size: 18px;
-  text-align: justify;
-  margin-bottom: 20px;
-}
-
-.rigth-container h3 {
-  color: black;
-  font-size: 14px;
-  text-align: start;
-}
-
-.rigth-container p {
-  margin: 20px;
-  font: 16px Arial, sans-serif;
-  height: 4rem;
-  /* overflow: hidden; */
-}
 
 .commentsBox {
   margin: 50px;
@@ -548,8 +512,6 @@ img {
 .comment2 p {
   margin-right: 5px;
   font: 20px Arial, sans-serif;
-  /* height: 4rem;
-  overflow: hidden; */
 }
 
 .commentAuthor {
@@ -597,4 +559,41 @@ textarea {
   border-radius: 5px;
   cursor: pointer;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.294);
+}
+
+@media (max-width: 1024px) {
+  .index-img {
+    width: 250px;
+    height: 250px;
+  }
+
+  .leftBox,
+  .left-container {
+    margin-right: 50px;
+  }
+
+  .PostContainer,
+  .container_book {
+    position: relative;
+    display: flex;
+    /* justify-content: center; */
+    /* gap: 50px; */
+    align-items: center;
+    padding: 5px;
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    border-radius: 5px;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.356);
+  }
+  
+
+  .text-info {
+    font: 16px Arial, sans-serif;
+    height: 4rem;
+    margin-left: 10px;
+    text-align: justify;
+  }
+
+
 }

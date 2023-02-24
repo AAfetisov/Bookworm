@@ -1,7 +1,7 @@
 const React = require('react');
 const Layout = require('../Layout');
 
-function MyProfile({ user, posts }) {
+function MyProfile({ user, posts, arating }) {
   const titleName = 'My Profile';
   const proverka = posts.length > 0;
   return (
@@ -12,7 +12,7 @@ function MyProfile({ user, posts }) {
           <h2>My books:</h2>
         </div>
 
-        {proverka > 0 ? (
+        {proverka ? (
           posts.map((e) => (
             <div key={e.id} className="PostContainer" id={e.id}>
               <div className="leftBox">
@@ -31,22 +31,6 @@ function MyProfile({ user, posts }) {
                   </p>
                 </div>
 
-                <div className="star-rating">
-                  <input type="radio" name="stars" id="star-a" value="5" />
-                  <label htmlFor="star-a" />
-
-                  <input type="radio" name="stars" id="star-b" value="4" />
-                  <label htmlFor="star-b" />
-
-                  <input type="radio" name="stars" id="star-c" value="3" />
-                  <label htmlFor="star-c" />
-
-                  <input type="radio" name="stars" id="star-d" value="2" />
-                  <label htmlFor="star-d" />
-
-                  <input type="radio" name="stars" id="star-e" value="1" />
-                  <label htmlFor="star-e" />
-                </div>
 
                 <div className="text-info">
                   <p>{e.description}</p>
@@ -80,6 +64,7 @@ function MyProfile({ user, posts }) {
         )}
       </div>
       <script defer src="/js/Book.js" />
+      <script src="/js/myprofile.js" defer />
     </Layout>
   );
 }

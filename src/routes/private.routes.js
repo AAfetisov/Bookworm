@@ -11,6 +11,7 @@ const {
   postEditform,
   renderFavs,
   addFav,
+  rateBook,
 } = require('../controllers/myprofileController');
 
 
@@ -33,5 +34,7 @@ router.post('/addbook/new', addbookForm);
 
 router.get('/favorites', renderFavs);
 router.post('/favorites', addFav);
+
+router.post('/rating', rateBook);
 
 module.exports = router;

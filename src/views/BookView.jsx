@@ -1,7 +1,9 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-module.exports = function BookView({ user, book, comments }) {
+module.exports = function BookView({
+  user, book, comments, urating, arating,
+}) {
   return (
     <Layout user={user}>
       {book ? (
@@ -13,6 +15,38 @@ module.exports = function BookView({ user, book, comments }) {
           <div className="rigth-container">
             <h2>{book.title}</h2>
             <h3>{book.author}</h3>
+            <div className="container_ratings">
+              <rating>
+                <span>Average rating:</span>
+                <div arating={arating} ids={book.id} className="astar-rating" id="averageRating">
+                  <input type="radio" name="astars" id="astar-a" value="5" />
+                  <label htmlFor="astar-a" />
+                  <input type="radio" name="astars" id="astar-b" value="4" />
+                  <label htmlFor="astar-b" />
+                  <input type="radio" name="astars" id="astar-c" value="3" />
+                  <label htmlFor="astar-c" />
+                  <input type="radio" name="astars" id="astar-d" value="2" />
+                  <label htmlFor="astar-d" />
+                  <input type="radio" name="astars" id="astar-e" value="1" />
+                  <label htmlFor="astar-e" />
+                </div>
+              </rating>
+              <rating>
+                <span>Your rating:</span>
+                <div urating={urating} ids={book.id} className="star-rating" id="userRating">
+                  <input type="radio" name="stars" id="star-a" value="5" />
+                  <label htmlFor="star-a" />
+                  <input type="radio" name="stars" id="star-b" value="4" />
+                  <label htmlFor="star-b" />
+                  <input type="radio" name="stars" id="star-c" value="3" />
+                  <label htmlFor="star-c" />
+                  <input type="radio" name="stars" id="star-d" value="2" />
+                  <label htmlFor="star-d" />
+                  <input type="radio" name="stars" id="star-e" value="1" />
+                  <label htmlFor="star-e" />
+                </div>
+              </rating>
+            </div>
             <p>
               Description:
               {' '}

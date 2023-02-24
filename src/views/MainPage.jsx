@@ -13,13 +13,12 @@ module.exports = function MainPage({ user, books }) {
               <li className="book-item" key={book.id}>
                 <a href={`/book/${book.id}`}><img className="img-entries" src={book.img} /></a>
                 <h1 className="text-title">{book.title.toUpperCase().slice(0, 17)}</h1>
-                <div className="rating">
-                  <div className="star" />
-                  <div className="star" />
-                  <div className="star" />
-                </div>
+                <rating>
+                  <div arating={book.averageRating} ids={book.id} className="simpleRating" />
+                  <p />
+                </rating>
                 <p className="text-info">
-                  {book.description.slice(0, 120)}
+                  {book.description?.slice(0, 120)}
                   ...
                 </p>
                 <div className="container__commentsFavorites">

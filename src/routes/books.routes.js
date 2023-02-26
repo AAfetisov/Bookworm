@@ -1,16 +1,22 @@
+const express = require('express');
+require('dotenv').config();
+const render = require('../lib/renderTemplate');
+const {
+  Book, Comment, User, Rating, sequelize, Favorite,
+} = require('../db/models');
+const isNumeric = require('../lib/utils');
 const renderTemplate = require('../lib/renderTemplate');
 const MainPage = require('../views/MainPage');
-const { sequelize, User } = require('../db/models');
-// Импорт модели Book
-const { Book, Favorite, Rating } = require('../db/models');
+
+const router = express.Router();
 
 
-const mainPage = async (req, res) => {
+router.get('/', async (req, res) => {
   const { user } = req.session;
   let page = parseInt(req?.query?.page, 10);
   let limit = parseInt(req?.query?.limit, 10);
 
-  const BOOKS_PER_PAGE_MAX = 4;
+  // const BOOKS_PER_PAGE_MAX = 4;
   page = page || 1;
   limit = limit <= BOOKS_PER_PAGE_MAX ? limit : BOOKS_PER_PAGE_MAX;
   const offset = (page - 1) * limit;
@@ -89,6 +95,6 @@ const mainPage = async (req, res) => {
     console.log(err);
     res.send({ err });
   }
-};
+});
 
-module.exports = mainPage;
+module.exports = router;

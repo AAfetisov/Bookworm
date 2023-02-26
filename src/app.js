@@ -14,6 +14,7 @@ const indexRoute = require('./routes/index.routes');
 const authRoute = require('./routes/auth.routes');
 const privateRoute = require('./routes/private.routes');
 const bookRoute = require('./routes/book.routes');
+const booksRoute = require('./routes/books.routes');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -52,6 +53,7 @@ app.use(session(sessionConfig));
 app.use('/', indexRoute);
 app.use('/auth', authRoute);
 app.use('/book', bookRoute);
+app.use('/books', booksRoute);
 app.use('/private', privateRoute);
 
 app.use('*', (req, res, next) => { res.send('404 Nothing found :('); });

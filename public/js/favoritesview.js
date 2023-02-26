@@ -23,3 +23,4 @@ favContainer.addEventListener('click', async (e) => {
     console.log(e.target, err.message);
   }
 });
+

@@ -20,9 +20,10 @@ router.get('/:id', async (req, res) => {
 
     let urating = 0;
     if (user) {
+      // User Rating
       urating = await Rating.findOne({ where: { userId: user.id, bookId: id } });
     }
-
+    // Average users Rating
     const arating = await Rating.findAll({
       attributes: ['bookId',
         [sequelize.fn('AVG', sequelize.col('rating')), 'averageRating'],
@@ -30,7 +31,6 @@ router.get('/:id', async (req, res) => {
       where: { bookId: id },
       group: ['bookId'],
       raw: true,
-      nested: true,
     });
 
     let comments = await Comment.findAll({
@@ -40,7 +40,6 @@ router.get('/:id', async (req, res) => {
         { model: User, attributes: ['name'] },
       ],
       raw: true,
-      nested: true,
     });
     if (comments.length === 0) { comments = undefined; }
     render(BookView, {

@@ -22,7 +22,6 @@ async function checkUserAndCreateSession(req, res) {
     res.json({ err: 'Email or password is empty' });
     return;
   }
-
   try {
     const user = await User.findOne({ where: { email } });
     if (user) {

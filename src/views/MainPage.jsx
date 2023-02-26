@@ -27,14 +27,13 @@ module.exports = function MainPage({ user, books }) {
                     <span>{book['User.name']}</span>
                   </span>
                   <span className="container_comments_favs">
-                    {book.fav}
                     <a href={`/book/${book.id}`}><img className="comments" src="/img/Comment.png" alt="comment" /></a>
                     <a className="favlinks" href="/">
                       <img
                         ids={book.id}
                         className="bookmark"
                         src={
-                      book.liked
+                      book['Favorites.userId']
                         ? '/img/Bookmark_red.png'
                         : '/img/Bookmark_black.png'
                       }

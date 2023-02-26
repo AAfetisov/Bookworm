@@ -617,3 +617,29 @@ textarea {
     text-align: justify;
   }
 }
+
+.pageNavigation {
+  margin: 2rem 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+.pageNavigation a {
+  text-align: center;
+  background-color: grey;
+  border-radius: 50%;
+  user-select: none;
+  width: 2rem;
+  height: 2rem;
+  text-shadow: 1px 1px black;
+  color: white;
+}
+
+.pageNavigation a:hover {
+  color: greenyellow;
+  background-color: black;
+}
+.pageNavigation .current {
+  color: greenyellow;
+  background-color: black;
+}

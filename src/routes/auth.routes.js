@@ -10,7 +10,7 @@ const {
   renderSignUpForm,
 } = require('../controllers/auth.controllers');
 const { isAuth, isValid } = require('../middleware/auth.mid');
-console.log();
+
 router
   .route('/signin')
   .get(renderSignInForm)

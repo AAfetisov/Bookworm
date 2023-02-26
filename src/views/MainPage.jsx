@@ -1,8 +1,10 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-module.exports = function MainPage({ user, books }) {
-  // console.log(books.map((book) => (book['Favorites.userId'] === user.id ? { ...book, liked: true } : { ...book, liked: false })));
+module.exports = function MainPage({ user, page }) {
+  const {
+    books, previous, next, current, total,
+  } = page;
   return (
     <Layout user={user}>
 
@@ -46,6 +48,14 @@ module.exports = function MainPage({ user, books }) {
             ))}
           </ul>
         )}
+        <div className="pageNavigation">
+          {previous
+          && <a href={`?page=${previous.page}&limit=${previous.limit}`}>{previous.page}</a>}
+          {current
+          && <a className="current">{current.page}</a>}
+          {next
+          && <a href={`?page=${next.page}&limit=${next.limit}`}>{next.page}</a>}
+        </div>
       </div>
       <script src="/js/mainpage.js" defer />
     </Layout>

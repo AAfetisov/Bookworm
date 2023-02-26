@@ -3,18 +3,16 @@ const MainPage = require('../views/MainPage');
 const { sequelize, User } = require('../db/models');
 // Импорт модели Book
 const { Book, Favorite, Rating } = require('../db/models');
-
+require('dotenv').config();
 
 const mainPage = async (req, res) => {
   const { user } = req.session;
   let page = parseInt(req?.query?.page, 10);
   let limit = parseInt(req?.query?.limit, 10);
-
-  const BOOKS_PER_PAGE_MAX = 4;
+  const BOOKS_PER_PAGE_MAX = process.env.BOOKS_PER_PAGE_MAX || 10;
   page = page || 1;
   limit = limit <= BOOKS_PER_PAGE_MAX ? limit : BOOKS_PER_PAGE_MAX;
   const offset = (page - 1) * limit;
-  // console.log(1111, limit, offset);
   const totalNumberOfRecords = await Book.count();
   let books = [];
 

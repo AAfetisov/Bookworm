@@ -261,7 +261,7 @@ body {
   display: flex;
   align-items: center;
   background-color: rgb(8, 231, 90);
-  color: #fff;
+  color: black;
   padding: 22px 45px;
   font-size: 1rem;
   text-transform: uppercase;
@@ -279,7 +279,7 @@ body {
   display: flex;
   align-items: center;
   background-color: rgb(8, 231, 90);
-  color: #fff;
+  color: black;
   padding: 22px 45px;
   font-size: 1rem;
   text-transform: uppercase;
@@ -302,6 +302,12 @@ body {
   flex-direction: column;
   align-items: flex-end;
 }
+
+p {
+  /* font: 20px Arial, sans-serif; */
+  font: 16px Arial, sans-serif;
+}
+
 rating {
   margin: 0.3rem;
   display: flex;
@@ -570,6 +576,7 @@ textarea {
   display: block;
   text-indent: 10px;
   padding: 10px;
+  margin-top: 20px;
 }
 
 .sendBtn {
